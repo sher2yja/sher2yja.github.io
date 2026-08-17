@@ -1,0 +1,350 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Alexander Stepanovich — DevOps Engineer</title>
+<meta name="description" content="DevOps portfolio: Kubernetes, Helm, Ansible, Docker, CI/CD and monitoring. Thirteen projects with reports and working configurations.">
+<meta property="og:title" content="Alexander Stepanovich — DevOps Engineer">
+<meta property="og:description" content="DevOps portfolio: Kubernetes, Helm, Ansible, Docker, CI/CD and monitoring.">
+<meta property="og:image" content="https://sher2yja.github.io/assets/photo.jpg">
+<meta property="og:url" content="https://sher2yja.github.io/en/">
+<meta property="og:type" content="profile">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='7' fill='%230b0e14'/%3E%3Ctext x='16' y='23' font-family='monospace' font-size='19' fill='%233fb950' text-anchor='middle'%3E%24%3C/text%3E%3C/svg%3E">
+<link rel="stylesheet" href="../assets/style.css">
+</head>
+<body>
+
+<header class="top">
+  <div class="wrap">
+    <div class="top-bar">
+      <nav class="lang"><a href="../">RU</a><span class="on">EN</span></nav>
+    </div>
+    <div class="hero">
+      <img class="avatar" src="../assets/photo.jpg" alt="Alexander Stepanovich" width="120" height="120">
+      <div>
+        <h1>Alexander Stepanovich</h1>
+        <p class="role">DevOps Engineer<span class="dot">·</span>Moscow</p>
+        <p class="lead">
+          I build infrastructure end to end — from installing a Linux server
+          in the console to a Helm release on a Kubernetes cluster. Every project
+          here is a working setup on virtual machines: deployed, verified and
+          documented in a report with screenshots of the commands and their output.
+        </p>
+        <div class="actions">
+          <a class="btn btn-primary" href="https://github.com/sher2yja/portfolio">Portfolio on GitHub</a>
+          <a class="btn" href="../assets/cv/Stepanovich_Alexander_CV.pdf">CV (PDF)</a>
+          <a class="btn" href="https://t.me/Alexander_Stepanovich">Telegram</a>
+          <a class="btn" href="mailto:iskstep93@gmail.com">Email</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</header>
+
+<main>
+
+<section id="stack">
+  <div class="wrap">
+    <h2>Stack</h2>
+    <p class="sub">Tools actually used in the projects below, not listed to pad the page.</p>
+
+    <div class="stack-row">
+      <div class="stack-name">Orchestration &amp; containers</div>
+      <div class="chips">
+        <span class="chip">Kubernetes</span><span class="chip">Helm</span><span class="chip">Kustomize</span>
+        <span class="chip">k3s</span><span class="chip">minikube</span><span class="chip">Docker</span>
+        <span class="chip">Docker Compose</span><span class="chip">Docker Swarm</span><span class="chip">Vagrant</span>
+      </div>
+    </div>
+    <div class="stack-row">
+      <div class="stack-name">Automation &amp; delivery</div>
+      <div class="chips">
+        <span class="chip">Ansible</span><span class="chip">Consul</span><span class="chip">Envoy</span>
+        <span class="chip">GitLab CI</span><span class="chip">Git</span><span class="chip">SSH / SCP</span>
+      </div>
+    </div>
+    <div class="stack-row">
+      <div class="stack-name">Observability</div>
+      <div class="chips">
+        <span class="chip">Prometheus</span><span class="chip">Grafana</span><span class="chip">Loki</span>
+        <span class="chip">Alertmanager</span><span class="chip">node_exporter</span><span class="chip">GoAccess</span>
+      </div>
+    </div>
+    <div class="stack-row">
+      <div class="stack-name">Systems &amp; data</div>
+      <div class="chips">
+        <span class="chip">Linux</span><span class="chip">Bash</span><span class="chip">NGINX</span>
+        <span class="chip">PostgreSQL</span><span class="chip">SQL</span><span class="chip">iptables</span>
+        <span class="chip">Netplan</span><span class="chip">cert-manager</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="chain">
+  <div class="wrap">
+    <h2>One application, six ways to ship it</h2>
+    <p class="sub">
+      Six projects deploy the same application — a hotel booking system of
+      7 Spring Boot microservices with PostgreSQL and RabbitMQ. Only the delivery
+      method changes.
+    </p>
+
+    <div class="chain">
+      <div class="step"><b>Compose</b><span>single machine</span></div>
+      <div class="arrow">→</div>
+      <div class="step"><b>Swarm</b><span>3-node cluster</span></div>
+      <div class="arrow">→</div>
+      <div class="step"><b>Ansible</b><span>roles and Consul</span></div>
+      <div class="arrow">→</div>
+      <div class="step"><b>K8s</b><span>hand-written manifests</span></div>
+      <div class="arrow">→</div>
+      <div class="step"><b>k3s</b><span>self-hosted cluster</span></div>
+      <div class="arrow">→</div>
+      <div class="step"><b>Helm</b><span>chart and Kustomize</span></div>
+    </div>
+
+    <p class="sub">
+      This makes it possible to compare tools on one task rather than through
+      their documentation: what each next step removes, what it adds and at what
+      cost. The findings are in the reports — for example how <code>mode: global</code>
+      differs from <code>replicated</code> for the same set of services, and why
+      a database on Kubernetes needs the <code>Recreate</code> strategy rather
+      than <code>RollingUpdate</code>.
+    </p>
+  </div>
+</section>
+
+<section id="projects">
+  <div class="wrap">
+    <h2>Projects</h2>
+    <p class="sub">
+      Thirteen published projects, ordered from advanced to fundamental; two more
+      in progress. <strong>Note:</strong> project READMEs and reports are written
+      in Russian — the code, manifests and configurations are language-neutral.
+    </p>
+
+    <div class="grid">
+
+      <article class="card">
+        <img src="../assets/covers/helm-kustomize-deploy.jpg" alt="Manifest tree of base and overlays" loading="lazy" width="640" height="360">
+        <div class="card-body">
+          <h3>Helm and Kustomize</h3>
+          <p>The same application is delivered two independent ways: <code>base</code> + <code>overlay</code>, and a hand-written chart. Plus adopting already running objects into Helm with no downtime.</p>
+          <div class="chips"><span class="chip">Helm</span><span class="chip">Kustomize</span><span class="chip">k3s</span><span class="chip">Vagrant</span></div>
+          <div class="links">
+            <a href="https://github.com/sher2yja/portfolio/tree/main/devops_projects/helm-kustomize-deploy">Code</a>
+            <a href="https://github.com/sher2yja/portfolio/blob/main/devops_projects/helm-kustomize-deploy/main_report.md">Report</a>
+          </div>
+        </div>
+      </article>
+
+      <article class="card">
+        <img src="../assets/covers/k3s-cluster-tls.jpg" alt="Issuing a wildcard certificate with cert-manager" loading="lazy" width="640" height="360">
+        <div class="card-body">
+          <h3>Self-hosted k3s cluster with TLS</h3>
+          <p>A cluster built from scratch on three machines. The bundled Ingress is replaced with NGINX, a wildcard certificate is issued for the domain, and the database gets persistent storage.</p>
+          <div class="chips"><span class="chip">k3s</span><span class="chip">NGINX Ingress</span><span class="chip">cert-manager</span><span class="chip">PV / PVC</span></div>
+          <div class="links">
+            <a href="https://github.com/sher2yja/portfolio/tree/main/devops_projects/k3s-cluster-tls">Code</a>
+            <a href="https://github.com/sher2yja/portfolio/blob/main/devops_projects/k3s-cluster-tls/main_report.md">Report</a>
+          </div>
+        </div>
+      </article>
+
+      <article class="card">
+        <img src="../assets/covers/k8s-microservices.jpg" alt="Kubernetes dashboard with deployments and pods" loading="lazy" width="640" height="360">
+        <div class="card-body">
+          <h3>Microservices on Kubernetes</h3>
+          <p>A 7-microservice application deployed with a hand-written set of manifests — from <code>Namespace</code> to <code>Deployment</code>. Running on minikube.</p>
+          <div class="chips"><span class="chip">Kubernetes</span><span class="chip">minikube</span><span class="chip">kubectl</span></div>
+          <div class="links">
+            <a href="https://github.com/sher2yja/portfolio/tree/main/devops_projects/k8s-microservices">Code</a>
+            <a href="https://github.com/sher2yja/portfolio/blob/main/devops_projects/k8s-microservices/main_report.md">Report</a>
+          </div>
+        </div>
+      </article>
+
+      <article class="card">
+        <img src="../assets/covers/swarm-orchestration.jpg" alt="Services spread across Swarm cluster nodes" loading="lazy" width="640" height="360">
+        <div class="card-body">
+          <h3>Compose and Swarm</h3>
+          <p>The same application goes through three stages: build and run on one machine, move into a virtual machine, then spread across a three-node cluster.</p>
+          <div class="chips"><span class="chip">Docker Compose</span><span class="chip">Docker Swarm</span><span class="chip">Vagrant</span></div>
+          <div class="links">
+            <a href="https://github.com/sher2yja/portfolio/tree/main/devops_projects/swarm-orchestration">Code</a>
+            <a href="https://github.com/sher2yja/portfolio/blob/main/devops_projects/swarm-orchestration/main_report.md">Report</a>
+          </div>
+        </div>
+      </article>
+
+      <article class="card">
+        <img src="../assets/covers/ansible-consul-iac.jpg" alt="Service list in the Consul UI" loading="lazy" width="640" height="360">
+        <div class="card-body">
+          <h3>Ansible and Consul</h3>
+          <p>Nodes are configured from a control machine with roles. In the second part services discover each other through a service mesh, and the database address disappears from the application configuration.</p>
+          <div class="chips"><span class="chip">Ansible</span><span class="chip">Consul</span><span class="chip">Envoy</span></div>
+          <div class="links">
+            <a href="https://github.com/sher2yja/portfolio/tree/main/devops_projects/ansible-consul-iac">Code</a>
+            <a href="https://github.com/sher2yja/portfolio/blob/main/devops_projects/ansible-consul-iac/main_report.md">Report</a>
+          </div>
+        </div>
+      </article>
+
+      <article class="card">
+        <img src="../assets/covers/gitlab-cicd-pipeline.jpg" alt="Fragment of .gitlab-ci.yml: stages, needs and manual deploy" loading="lazy" width="640" height="360">
+        <div class="card-body">
+          <h3>GitLab CI/CD pipeline</h3>
+          <p>Four stages — style, build, test, deploy — with a Telegram notification after each one and a manual button for shipping to the server.</p>
+          <div class="chips"><span class="chip">GitLab CI</span><span class="chip">Bash</span><span class="chip">SSH / SCP</span></div>
+          <div class="links">
+            <a href="https://github.com/sher2yja/portfolio/tree/main/devops_projects/gitlab-cicd-pipeline">Code</a>
+            <a href="https://github.com/sher2yja/portfolio/blob/main/devops_projects/gitlab-cicd-pipeline/main_report.md">Report</a>
+          </div>
+        </div>
+      </article>
+
+      <article class="card">
+        <img src="../assets/covers/observability-stack.jpg" alt="Grafana dashboard with cluster metrics" loading="lazy" width="640" height="360">
+        <div class="card-body">
+          <h3>Observability stack</h3>
+          <p>A Swarm cluster wrapped in metrics, logs and alerts: Prometheus collects metrics, Loki collects logs, Grafana brings them onto one dashboard, Alertmanager raises alarms.</p>
+          <div class="chips"><span class="chip">Prometheus</span><span class="chip">Loki</span><span class="chip">Grafana</span><span class="chip">Alertmanager</span></div>
+          <div class="links">
+            <a href="https://github.com/sher2yja/portfolio/tree/main/devops_projects/observability-stack">Code</a>
+            <a href="https://github.com/sher2yja/portfolio/blob/main/devops_projects/observability-stack/main_report.md">Report</a>
+          </div>
+        </div>
+      </article>
+
+      <article class="card">
+        <img src="../assets/covers/log-analytics-monitoring.jpg" alt="Load graphs on a node exporter dashboard" loading="lazy" width="640" height="360">
+        <div class="card-body">
+          <h3>Real-time monitoring</h3>
+          <p>Scripts create and remove load, generate and parse nginx logs, while the setup shows what that load looks like on the graphs.</p>
+          <div class="chips"><span class="chip">Bash</span><span class="chip">Prometheus</span><span class="chip">Grafana</span><span class="chip">GoAccess</span></div>
+          <div class="links">
+            <a href="https://github.com/sher2yja/portfolio/tree/main/devops_projects/log-analytics-monitoring">Code</a>
+            <a href="https://github.com/sher2yja/portfolio/blob/main/devops_projects/log-analytics-monitoring/main_report.md">Report</a>
+          </div>
+        </div>
+      </article>
+
+      <article class="card">
+        <img src="../assets/covers/docker-nginx-fastcgi.jpg" alt="Custom images in docker images" loading="lazy" width="640" height="360">
+        <div class="card-body">
+          <h3>Custom Docker image</h3>
+          <p>From a ready-made registry image to a custom one split across two containers. Inside — a tiny web server in C speaking FastCGI, and image hardening for an unprivileged user.</p>
+          <div class="chips"><span class="chip">Docker</span><span class="chip">NGINX</span><span class="chip">FastCGI</span><span class="chip">Dockle</span></div>
+          <div class="links">
+            <a href="https://github.com/sher2yja/portfolio/tree/main/devops_projects/docker-nginx-fastcgi">Code</a>
+            <a href="https://github.com/sher2yja/portfolio/blob/main/devops_projects/docker-nginx-fastcgi/main_report.md">Report</a>
+          </div>
+        </div>
+      </article>
+
+      <article class="card">
+        <img src="../assets/covers/network-infrastructure.jpg" alt="Subnet breakdown with ipcalc" loading="lazy" width="640" height="360">
+        <div class="card-body">
+          <h3>Linux networking</h3>
+          <p>A five-machine setup: two subnets, two routers. Static routing, a firewall, address allocation and translation to the outside network.</p>
+          <div class="chips"><span class="chip">Netplan</span><span class="chip">iptables</span><span class="chip">isc-dhcp</span><span class="chip">NAT</span></div>
+          <div class="links">
+            <a href="https://github.com/sher2yja/portfolio/tree/main/devops_projects/network-infrastructure">Code</a>
+            <a href="https://github.com/sher2yja/portfolio/blob/main/devops_projects/network-infrastructure/main_report.md">Report</a>
+          </div>
+        </div>
+      </article>
+
+      <article class="card">
+        <img src="../assets/covers/sys-monitor-scripts.jpg" alt="Bash function converting a prefix into a netmask" loading="lazy" width="640" height="360">
+        <div class="card-body">
+          <h3>Bash scripting</h3>
+          <p>Five scripts: argument parsing, collecting machine facts, colour output configured from a file, and walking the filesystem to build a tree.</p>
+          <div class="chips"><span class="chip">Bash</span><span class="chip">find</span><span class="chip">awk</span><span class="chip">sed</span></div>
+          <div class="links">
+            <a href="https://github.com/sher2yja/portfolio/tree/main/devops_projects/sys-monitor-scripts">Code</a>
+            <a href="https://github.com/sher2yja/portfolio/blob/main/devops_projects/sys-monitor-scripts/main_report.md">Report</a>
+          </div>
+        </div>
+      </article>
+
+      <article class="card">
+        <img src="../assets/covers/linux-core-setup.jpg" alt="Server processes in htop" loading="lazy" width="640" height="360">
+        <div class="card-body">
+          <h3>Ubuntu Server setup</h3>
+          <p>Deploying a server from scratch and bringing it into working order: networking, permissions, remote access, diagnostics. All in the console, no GUI.</p>
+          <div class="chips"><span class="chip">Ubuntu Server</span><span class="chip">OpenSSH</span><span class="chip">Netplan</span><span class="chip">htop</span></div>
+          <div class="links">
+            <a href="https://github.com/sher2yja/portfolio/tree/main/devops_projects/linux-core-setup">Code</a>
+            <a href="https://github.com/sher2yja/portfolio/blob/main/devops_projects/linux-core-setup/main_report.md">Report</a>
+          </div>
+        </div>
+      </article>
+
+      <article class="card">
+        <img src="../assets/covers/pizzeria-sql-basics.jpg" alt="Query with subqueries in SELECT and FROM" loading="lazy" width="640" height="360">
+        <div class="card-body">
+          <h3>Pizzeria database queries</h3>
+          <p>Ten queries against a five-table database. Some exercises forbid <code>JOIN</code> and <code>IN</code>, so the tables are linked by hand with subqueries.</p>
+          <div class="chips"><span class="chip">PostgreSQL</span><span class="chip">ANSI SQL</span><span class="chip">Bash</span></div>
+          <div class="links">
+            <a href="https://github.com/sher2yja/portfolio/tree/main/sql_projects/pizzeria-sql-basics">Code</a>
+            <a href="https://github.com/sher2yja/portfolio/blob/main/sql_projects/pizzeria-sql-basics/main_report.md">Report</a>
+          </div>
+        </div>
+      </article>
+
+    </div>
+  </div>
+</section>
+
+<section id="background">
+  <div class="wrap">
+    <h2>Background</h2>
+    <p class="sub">The engineering track did not start from zero: before it came work with technical requirements, contractors and system rollouts.</p>
+
+    <ul class="facts">
+      <li>
+        <span class="when">since 04.2025</span>
+        <span><b>School 21, DevOps track</b><span class="what">Admitted after a two-month intensive, finishing in the top 10% of a 250-person cohort; more than 50 code reviews given.</span></span>
+      </li>
+      <li>
+        <span class="when">certificate</span>
+        <span><b>Stepik, «Kubernetes» program</b><span class="what">An external course taken alongside three own Kubernetes projects.</span></span>
+      </li>
+      <li>
+        <span class="when">2021 — 2025</span>
+        <span><b>SibPribor LLC, project manager</b><span class="what">Administering corporate web resources; a full CRM rollout — from business process analysis and logic design to specification sign-off and production launch.</span></span>
+      </li>
+      <li>
+        <span class="when">education</span>
+        <span><b>INRTU, Institute of High Technologies</b><span class="what">Quality Management in Production and Technological Systems; currently a master's programme in Technosphere Safety.</span></span>
+      </li>
+      <li>
+        <span class="when">language</span>
+        <span><b>English B2</b><span class="what">Verified on hh.ru.</span></span>
+      </li>
+    </ul>
+  </div>
+</section>
+
+</main>
+
+<footer>
+  <div class="wrap">
+    <div class="actions">
+      <a class="btn btn-primary" href="https://t.me/Alexander_Stepanovich">Telegram</a>
+      <a class="btn" href="mailto:iskstep93@gmail.com">iskstep93@gmail.com</a>
+      <a class="btn" href="https://github.com/sher2yja">GitHub</a>
+    </div>
+    <p>
+      Passwords and keys in the published manifests are placeholders for local
+      virtual-machine setups, not real secrets.
+    </p>
+  </div>
+</footer>
+
+</body>
+</html>
