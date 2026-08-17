@@ -1,0 +1,347 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Александр Степанович — DevOps-инженер</title>
+<meta name="description" content="Портфолио DevOps: Kubernetes, Helm, Ansible, Docker, CI/CD и мониторинг. Тринадцать проектов с отчётами и рабочими конфигурациями.">
+<meta property="og:title" content="Александр Степанович — DevOps-инженер">
+<meta property="og:description" content="Портфолио DevOps: Kubernetes, Helm, Ansible, Docker, CI/CD и мониторинг.">
+<meta property="og:image" content="https://sher2yja.github.io/assets/photo.jpg">
+<meta property="og:url" content="https://sher2yja.github.io/">
+<meta property="og:type" content="profile">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='7' fill='%230b0e14'/%3E%3Ctext x='16' y='23' font-family='monospace' font-size='19' fill='%233fb950' text-anchor='middle'%3E%24%3C/text%3E%3C/svg%3E">
+<link rel="stylesheet" href="assets/style.css">
+</head>
+<body>
+
+<header class="top">
+  <div class="wrap">
+    <div class="top-bar">
+      <nav class="lang"><span class="on">RU</span><a href="en/">EN</a></nav>
+    </div>
+    <div class="hero">
+      <img class="avatar" src="assets/photo.jpg" alt="Александр Степанович" width="120" height="120">
+      <div>
+        <h1>Александр Степанович</h1>
+        <p class="role">DevOps-инженер<span class="dot">·</span>Москва</p>
+        <p class="lead">
+          Собираю инфраструктуру целиком — от установки Linux-сервера в консоли
+          до Helm-релиза в кластере Kubernetes. Каждый проект здесь это работающий
+          стенд на виртуальных машинах: развёрнут, проверен и разобран в отчёте
+          со скриншотами команд и их вывода.
+        </p>
+        <div class="actions">
+          <a class="btn btn-primary" href="https://github.com/sher2yja/portfolio">Портфолио на GitHub</a>
+          <a class="btn" href="assets/cv/Stepanovich_Alexander_CV.pdf">Резюме PDF</a>
+          <a class="btn" href="https://hh.ru/resume/a9046819ff0bac81c10039ed1f71646e4b5454">Резюме на hh.ru</a>
+          <a class="btn" href="https://t.me/Alexander_Stepanovich">Telegram</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</header>
+
+<main>
+
+<section id="stack">
+  <div class="wrap">
+    <h2>Стек</h2>
+    <p class="sub">Инструменты, которые реально применены в проектах ниже, а не перечислены для объёма.</p>
+
+    <div class="stack-row">
+      <div class="stack-name">Оркестрация и контейнеры</div>
+      <div class="chips">
+        <span class="chip">Kubernetes</span><span class="chip">Helm</span><span class="chip">Kustomize</span>
+        <span class="chip">k3s</span><span class="chip">minikube</span><span class="chip">Docker</span>
+        <span class="chip">Docker Compose</span><span class="chip">Docker Swarm</span><span class="chip">Vagrant</span>
+      </div>
+    </div>
+    <div class="stack-row">
+      <div class="stack-name">Автоматизация и доставка</div>
+      <div class="chips">
+        <span class="chip">Ansible</span><span class="chip">Consul</span><span class="chip">Envoy</span>
+        <span class="chip">GitLab CI</span><span class="chip">Git</span><span class="chip">SSH / SCP</span>
+      </div>
+    </div>
+    <div class="stack-row">
+      <div class="stack-name">Наблюдаемость</div>
+      <div class="chips">
+        <span class="chip">Prometheus</span><span class="chip">Grafana</span><span class="chip">Loki</span>
+        <span class="chip">Alertmanager</span><span class="chip">node_exporter</span><span class="chip">GoAccess</span>
+      </div>
+    </div>
+    <div class="stack-row">
+      <div class="stack-name">Системы и данные</div>
+      <div class="chips">
+        <span class="chip">Linux</span><span class="chip">Bash</span><span class="chip">NGINX</span>
+        <span class="chip">PostgreSQL</span><span class="chip">SQL</span><span class="chip">iptables</span>
+        <span class="chip">Netplan</span><span class="chip">cert-manager</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="chain">
+  <div class="wrap">
+    <h2>Одно приложение, шесть способов доставки</h2>
+    <p class="sub">
+      Шесть проектов разворачивают одно и то же приложение — систему бронирования
+      отелей из 7 микросервисов на Spring Boot с PostgreSQL и RabbitMQ. Меняется
+      только способ доставки.
+    </p>
+
+    <div class="chain">
+      <div class="step"><b>Compose</b><span>одна машина</span></div>
+      <div class="arrow">→</div>
+      <div class="step"><b>Swarm</b><span>кластер из 3 узлов</span></div>
+      <div class="arrow">→</div>
+      <div class="step"><b>Ansible</b><span>роли и Consul</span></div>
+      <div class="arrow">→</div>
+      <div class="step"><b>K8s</b><span>свои манифесты</span></div>
+      <div class="arrow">→</div>
+      <div class="step"><b>k3s</b><span>свой кластер</span></div>
+      <div class="arrow">→</div>
+      <div class="step"><b>Helm</b><span>чарт и Kustomize</span></div>
+    </div>
+
+    <p class="sub">
+      Это даёт возможность сравнивать инструменты не по документации, а на одной
+      задаче: видно, что каждый следующий убирает, что добавляет и какой ценой.
+      Наблюдения собраны в отчётах — например, чем <code>mode: global</code>
+      отличается от <code>replicated</code> при том же наборе сервисов и почему
+      база в Kubernetes требует стратегии <code>Recreate</code>, а не
+      <code>RollingUpdate</code>.
+    </p>
+  </div>
+</section>
+
+<section id="projects">
+  <div class="wrap">
+    <h2>Проекты</h2>
+    <p class="sub">Тринадцать опубликованных проектов, порядок — от сложного к базовому. Ещё два в работе.</p>
+
+    <div class="grid">
+
+      <article class="card">
+        <img src="assets/covers/helm-kustomize-deploy.jpg" alt="Дерево манифестов base и overlays" loading="lazy" width="640" height="360">
+        <div class="card-body">
+          <h3>Helm и Kustomize</h3>
+          <p>Одно приложение доставляется двумя независимыми путями: <code>base</code> + <code>overlay</code> и собственный чарт. Отдельно — передача уже работающих объектов под управление Helm без простоя.</p>
+          <div class="chips"><span class="chip">Helm</span><span class="chip">Kustomize</span><span class="chip">k3s</span><span class="chip">Vagrant</span></div>
+          <div class="links">
+            <a href="https://github.com/sher2yja/portfolio/tree/main/devops_projects/helm-kustomize-deploy">Код</a>
+            <a href="https://github.com/sher2yja/portfolio/blob/main/devops_projects/helm-kustomize-deploy/main_report.md">Отчёт</a>
+          </div>
+        </div>
+      </article>
+
+      <article class="card">
+        <img src="assets/covers/k3s-cluster-tls.jpg" alt="Выпуск wildcard-сертификата через cert-manager" loading="lazy" width="640" height="360">
+        <div class="card-body">
+          <h3>Кластер k3s с TLS</h3>
+          <p>Кластер собирается с нуля на трёх машинах. Штатный Ingress заменяется на NGINX, для домена выпускается wildcard-сертификат, база получает постоянное хранилище.</p>
+          <div class="chips"><span class="chip">k3s</span><span class="chip">NGINX Ingress</span><span class="chip">cert-manager</span><span class="chip">PV / PVC</span></div>
+          <div class="links">
+            <a href="https://github.com/sher2yja/portfolio/tree/main/devops_projects/k3s-cluster-tls">Код</a>
+            <a href="https://github.com/sher2yja/portfolio/blob/main/devops_projects/k3s-cluster-tls/main_report.md">Отчёт</a>
+          </div>
+        </div>
+      </article>
+
+      <article class="card">
+        <img src="assets/covers/k8s-microservices.jpg" alt="Панель Kubernetes: развёртывания и поды приложения" loading="lazy" width="640" height="360">
+        <div class="card-body">
+          <h3>Микросервисы в Kubernetes</h3>
+          <p>Приложение из 7 микросервисов разворачивается собственным набором манифестов — от <code>Namespace</code> до <code>Deployment</code>. Стенд на minikube.</p>
+          <div class="chips"><span class="chip">Kubernetes</span><span class="chip">minikube</span><span class="chip">kubectl</span></div>
+          <div class="links">
+            <a href="https://github.com/sher2yja/portfolio/tree/main/devops_projects/k8s-microservices">Код</a>
+            <a href="https://github.com/sher2yja/portfolio/blob/main/devops_projects/k8s-microservices/main_report.md">Отчёт</a>
+          </div>
+        </div>
+      </article>
+
+      <article class="card">
+        <img src="assets/covers/swarm-orchestration.jpg" alt="Сервисы, разложенные по узлам кластера Swarm" loading="lazy" width="640" height="360">
+        <div class="card-body">
+          <h3>Compose и Swarm</h3>
+          <p>То же приложение проходит три стадии: сборка и запуск на одной машине, перенос в виртуальную машину, распределение по кластеру из трёх узлов.</p>
+          <div class="chips"><span class="chip">Docker Compose</span><span class="chip">Docker Swarm</span><span class="chip">Vagrant</span></div>
+          <div class="links">
+            <a href="https://github.com/sher2yja/portfolio/tree/main/devops_projects/swarm-orchestration">Код</a>
+            <a href="https://github.com/sher2yja/portfolio/blob/main/devops_projects/swarm-orchestration/main_report.md">Отчёт</a>
+          </div>
+        </div>
+      </article>
+
+      <article class="card">
+        <img src="assets/covers/ansible-consul-iac.jpg" alt="Список сервисов в интерфейсе Consul" loading="lazy" width="640" height="360">
+        <div class="card-body">
+          <h3>Ansible и Consul</h3>
+          <p>Узлы настраиваются с управляющей машины ролями. Во второй части сервисы находят друг друга через service mesh, и адрес базы исчезает из конфигурации приложения.</p>
+          <div class="chips"><span class="chip">Ansible</span><span class="chip">Consul</span><span class="chip">Envoy</span></div>
+          <div class="links">
+            <a href="https://github.com/sher2yja/portfolio/tree/main/devops_projects/ansible-consul-iac">Код</a>
+            <a href="https://github.com/sher2yja/portfolio/blob/main/devops_projects/ansible-consul-iac/main_report.md">Отчёт</a>
+          </div>
+        </div>
+      </article>
+
+      <article class="card">
+        <img src="assets/covers/gitlab-cicd-pipeline.jpg" alt="Фрагмент .gitlab-ci.yml: стадии, needs и ручная выкладка" loading="lazy" width="640" height="360">
+        <div class="card-body">
+          <h3>Конвейер GitLab CI/CD</h3>
+          <p>Четыре стадии — стиль, сборка, тесты, доставка — с уведомлением в Telegram после каждой и выкладкой на сервер по кнопке.</p>
+          <div class="chips"><span class="chip">GitLab CI</span><span class="chip">Bash</span><span class="chip">SSH / SCP</span></div>
+          <div class="links">
+            <a href="https://github.com/sher2yja/portfolio/tree/main/devops_projects/gitlab-cicd-pipeline">Код</a>
+            <a href="https://github.com/sher2yja/portfolio/blob/main/devops_projects/gitlab-cicd-pipeline/main_report.md">Отчёт</a>
+          </div>
+        </div>
+      </article>
+
+      <article class="card">
+        <img src="assets/covers/observability-stack.jpg" alt="Дашборд Grafana с метриками кластера" loading="lazy" width="640" height="360">
+        <div class="card-body">
+          <h3>Стек наблюдаемости</h3>
+          <p>Кластер Swarm обвязывается метриками, логами и оповещениями: Prometheus собирает метрики, Loki — логи, Grafana сводит на дашборд, Alertmanager шлёт тревоги.</p>
+          <div class="chips"><span class="chip">Prometheus</span><span class="chip">Loki</span><span class="chip">Grafana</span><span class="chip">Alertmanager</span></div>
+          <div class="links">
+            <a href="https://github.com/sher2yja/portfolio/tree/main/devops_projects/observability-stack">Код</a>
+            <a href="https://github.com/sher2yja/portfolio/blob/main/devops_projects/observability-stack/main_report.md">Отчёт</a>
+          </div>
+        </div>
+      </article>
+
+      <article class="card">
+        <img src="assets/covers/log-analytics-monitoring.jpg" alt="Графики нагрузки на дашборде node exporter" loading="lazy" width="640" height="360">
+        <div class="card-body">
+          <h3>Мониторинг в реальном времени</h3>
+          <p>Скрипты создают и убирают нагрузку, генерируют и разбирают логи nginx, а стенд показывает, как эта нагрузка выглядит на графиках.</p>
+          <div class="chips"><span class="chip">Bash</span><span class="chip">Prometheus</span><span class="chip">Grafana</span><span class="chip">GoAccess</span></div>
+          <div class="links">
+            <a href="https://github.com/sher2yja/portfolio/tree/main/devops_projects/log-analytics-monitoring">Код</a>
+            <a href="https://github.com/sher2yja/portfolio/blob/main/devops_projects/log-analytics-monitoring/main_report.md">Отчёт</a>
+          </div>
+        </div>
+      </article>
+
+      <article class="card">
+        <img src="assets/covers/docker-nginx-fastcgi.jpg" alt="Свои образы в docker images" loading="lazy" width="640" height="360">
+        <div class="card-body">
+          <h3>Свой образ Docker</h3>
+          <p>Путь от готового образа из реестра до собственного, разнесённого на два контейнера. Внутри — мини веб-сервер на C по протоколу FastCGI и закалка образа под непривилегированного пользователя.</p>
+          <div class="chips"><span class="chip">Docker</span><span class="chip">NGINX</span><span class="chip">FastCGI</span><span class="chip">Dockle</span></div>
+          <div class="links">
+            <a href="https://github.com/sher2yja/portfolio/tree/main/devops_projects/docker-nginx-fastcgi">Код</a>
+            <a href="https://github.com/sher2yja/portfolio/blob/main/devops_projects/docker-nginx-fastcgi/main_report.md">Отчёт</a>
+          </div>
+        </div>
+      </article>
+
+      <article class="card">
+        <img src="assets/covers/network-infrastructure.jpg" alt="Разбор подсети утилитой ipcalc" loading="lazy" width="640" height="360">
+        <div class="card-body">
+          <h3>Сети в Linux</h3>
+          <p>Стенд из пяти машин: две подсети, два маршрутизатора. Статическая маршрутизация, сетевой экран, выдача адресов и трансляция во внешнюю сеть.</p>
+          <div class="chips"><span class="chip">Netplan</span><span class="chip">iptables</span><span class="chip">isc-dhcp</span><span class="chip">NAT</span></div>
+          <div class="links">
+            <a href="https://github.com/sher2yja/portfolio/tree/main/devops_projects/network-infrastructure">Код</a>
+            <a href="https://github.com/sher2yja/portfolio/blob/main/devops_projects/network-infrastructure/main_report.md">Отчёт</a>
+          </div>
+        </div>
+      </article>
+
+      <article class="card">
+        <img src="assets/covers/sys-monitor-scripts.jpg" alt="Функция перевода префикса в маску на Bash" loading="lazy" width="640" height="360">
+        <div class="card-body">
+          <h3>Скрипты на Bash</h3>
+          <p>Пять скриптов: разбор аргументов, сбор сведений о машине, цветной вывод с настройкой из файла, обход файловой системы с построением дерева.</p>
+          <div class="chips"><span class="chip">Bash</span><span class="chip">find</span><span class="chip">awk</span><span class="chip">sed</span></div>
+          <div class="links">
+            <a href="https://github.com/sher2yja/portfolio/tree/main/devops_projects/sys-monitor-scripts">Код</a>
+            <a href="https://github.com/sher2yja/portfolio/blob/main/devops_projects/sys-monitor-scripts/main_report.md">Отчёт</a>
+          </div>
+        </div>
+      </article>
+
+      <article class="card">
+        <img src="assets/covers/linux-core-setup.jpg" alt="Процессы сервера в htop" loading="lazy" width="640" height="360">
+        <div class="card-body">
+          <h3>Установка Ubuntu Server</h3>
+          <p>Развёртывание сервера с нуля и приведение в рабочее состояние: сеть, права, удалённый доступ, диагностика. Всё в консоли, без графики.</p>
+          <div class="chips"><span class="chip">Ubuntu Server</span><span class="chip">OpenSSH</span><span class="chip">Netplan</span><span class="chip">htop</span></div>
+          <div class="links">
+            <a href="https://github.com/sher2yja/portfolio/tree/main/devops_projects/linux-core-setup">Код</a>
+            <a href="https://github.com/sher2yja/portfolio/blob/main/devops_projects/linux-core-setup/main_report.md">Отчёт</a>
+          </div>
+        </div>
+      </article>
+
+      <article class="card">
+        <img src="assets/covers/pizzeria-sql-basics.jpg" alt="Запрос с подзапросами в SELECT и FROM" loading="lazy" width="640" height="360">
+        <div class="card-body">
+          <h3>Выборки по базе пиццерий</h3>
+          <p>Десять запросов к базе из пяти связанных таблиц. Часть заданий запрещает <code>JOIN</code> и <code>IN</code>, поэтому таблицы связываются подзапросами вручную.</p>
+          <div class="chips"><span class="chip">PostgreSQL</span><span class="chip">ANSI SQL</span><span class="chip">Bash</span></div>
+          <div class="links">
+            <a href="https://github.com/sher2yja/portfolio/tree/main/sql_projects/pizzeria-sql-basics">Код</a>
+            <a href="https://github.com/sher2yja/portfolio/blob/main/sql_projects/pizzeria-sql-basics/main_report.md">Отчёт</a>
+          </div>
+        </div>
+      </article>
+
+    </div>
+  </div>
+</section>
+
+<section id="background">
+  <div class="wrap">
+    <h2>Подготовка и опыт</h2>
+    <p class="sub">Инженерная подготовка началась не с нуля: до неё была работа с техническими требованиями, подрядчиками и внедрением систем.</p>
+
+    <ul class="facts">
+      <li>
+        <span class="when">с 04.2025</span>
+        <span><b>Школа 21, направление DevOps</b><span class="what">Отбор пройден после двухмесячного интенсива, вошёл в топ-10% выпускников потока из 250 человек; более 50 проведённых code review.</span></span>
+      </li>
+      <li>
+        <span class="when">сертификат</span>
+        <span><b>Stepik, программа «Kubernetes»</b><span class="what">Внешний курс параллельно трём собственным проектам по Kubernetes.</span></span>
+      </li>
+      <li>
+        <span class="when">2021 — 2025</span>
+        <span><b>ООО «СибПрибор», менеджер проекта</b><span class="what">Администрирование корпоративных веб-ресурсов; полный цикл внедрения CRM — от анализа бизнес-процессов и проектирования логики до согласования ТЗ и запуска в эксплуатацию.</span></span>
+      </li>
+      <li>
+        <span class="when">образование</span>
+        <span><b>ИРНИТУ, Институт высоких технологий</b><span class="what">«Управление качеством в производственно-технологических системах»; сейчас магистратура по направлению «Техносферная безопасность».</span></span>
+      </li>
+      <li>
+        <span class="when">язык</span>
+        <span><b>English B2</b><span class="what">Уровень подтверждён на hh.ru.</span></span>
+      </li>
+    </ul>
+  </div>
+</section>
+
+</main>
+
+<footer>
+  <div class="wrap">
+    <div class="actions">
+      <a class="btn btn-primary" href="https://t.me/Alexander_Stepanovich">Telegram</a>
+      <a class="btn" href="mailto:iskstep93@gmail.com">iskstep93@gmail.com</a>
+      <a class="btn" href="https://hh.ru/resume/a9046819ff0bac81c10039ed1f71646e4b5454">Резюме на hh.ru</a>
+      <a class="btn" href="https://github.com/sher2yja">GitHub</a>
+    </div>
+    <p>
+      Пароли и ключи в опубликованных манифестах — заглушки локальных стендов
+      на виртуальных машинах, а не рабочие секреты.
+    </p>
+  </div>
+</footer>
+
+</body>
+</html>
