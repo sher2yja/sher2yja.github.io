@@ -160,11 +160,14 @@ section h2::before {
   font-family: var(--mono);
 }
 
+/* 88ch, а не 70ch: под однострочным заголовком короткая мера обрывала фразу
+   на середине колонки, а чипы и карточки под ней шли во всю ширину — мера
+   разъезжалась. Тексты подрезаны так, чтобы вставать в одну-две полные строки. */
 .sub {
   margin: 0 0 26px;
   color: var(--muted);
   font-size: 15px;
-  max-width: 70ch;
+  max-width: 88ch;
 }
 
 /* ---------- стек ---------- */
@@ -209,7 +212,7 @@ section h2::before {
 
 .callout p {
   margin: 0 0 14px;
-  max-width: 64ch;
+  max-width: 80ch;
   font-size: 16.5px;
 }
 
