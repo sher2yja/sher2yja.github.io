@@ -196,6 +196,27 @@ section h2::before {
   white-space: nowrap;
 }
 
+/* ---------- врезка ---------- */
+
+.callout {
+  margin: 0 0 26px;
+  padding: 18px 22px;
+  border: 1px solid var(--border);
+  border-left: 3px solid var(--accent);
+  border-radius: var(--radius);
+  background: var(--surface);
+}
+
+.callout p {
+  margin: 0 0 14px;
+  max-width: 64ch;
+  font-size: 16.5px;
+}
+
+.callout strong { color: var(--text); }
+
+.callout .chips { margin: 0; }
+
 /* ---------- цепочка доставки ---------- */
 
 .chain {
@@ -297,6 +318,7 @@ footer .actions { margin-bottom: 20px; }
   .avatar { width: 92px; height: 92px; }
   .hero h1 { font-size: 25px; }
   .stack-row { grid-template-columns: 1fr; gap: 8px; }
+  .callout { padding: 14px 16px; }
   .facts li { grid-template-columns: 1fr; gap: 4px; }
   .arrow { display: none; }
   section { padding: 34px 0; }
