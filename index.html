@@ -4,7 +4,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Александр Степанович — DevOps-инженер</title>
-<meta name="description" content="Портфолио DevOps: Kubernetes, Helm, Ansible, Docker, CI/CD и мониторинг. Тринадцать проектов с отчётами и рабочими конфигурациями.">
+<meta name="description" content="Портфолио DevOps: Kubernetes, Helm, Ansible, Docker, CI/CD и мониторинг. Четырнадцать проектов с отчётами и рабочими конфигурациями.">
 <meta property="og:title" content="Александр Степанович — DevOps-инженер">
 <meta property="og:description" content="Портфолио DevOps: Kubernetes, Helm, Ansible, Docker, CI/CD и мониторинг.">
 <meta property="og:image" content="https://sher2yja.github.io/assets/photo.jpg">
@@ -53,7 +53,7 @@
       <div class="stack-name">Оркестрация и контейнеры</div>
       <div class="chips">
         <span class="chip">Kubernetes</span><span class="chip">Helm</span><span class="chip">Kustomize</span>
-        <span class="chip">k3s</span><span class="chip">minikube</span><span class="chip">Docker</span>
+        <span class="chip">k3s</span><span class="chip">k3d</span><span class="chip">minikube</span><span class="chip">Docker</span>
         <span class="chip">Docker Compose</span><span class="chip">Docker Swarm</span><span class="chip">Vagrant</span>
       </div>
     </div>
@@ -61,7 +61,7 @@
       <div class="stack-name">Автоматизация и доставка</div>
       <div class="chips">
         <span class="chip">Ansible</span><span class="chip">Consul</span><span class="chip">Envoy</span>
-        <span class="chip">GitLab CI</span><span class="chip">Git</span><span class="chip">SSH / SCP</span>
+        <span class="chip">GitLab CI</span><span class="chip">GitHub Actions</span><span class="chip">Git</span><span class="chip">SSH / SCP</span>
       </div>
     </div>
     <div class="stack-row">
@@ -84,10 +84,10 @@
 
 <section id="chain">
   <div class="wrap">
-    <h2>Одно приложение, шесть способов доставки</h2>
+    <h2>Одно приложение, семь способов доставки</h2>
     <div class="callout">
       <p>
-        Шесть проектов разворачивают <strong>одно и то же приложение</strong> —
+        Семь проектов разворачивают <strong>одно и то же приложение</strong> —
         систему бронирования отелей из 7 микросервисов. Меняется только способ
         доставки.
       </p>
@@ -108,6 +108,8 @@
       <div class="step"><b>k3s</b><span>свой кластер</span></div>
       <div class="arrow">→</div>
       <div class="step"><b>Helm</b><span>чарт и Kustomize</span></div>
+      <div class="arrow">→</div>
+      <div class="step"><b>Конвейер</b><span>доставка чартом</span></div>
     </div>
 
     <p class="sub">
@@ -123,7 +125,7 @@
 <section id="projects">
   <div class="wrap">
     <h2>Проекты</h2>
-    <p class="sub">Тринадцать опубликованных проектов, порядок — от сложного к базовому. Ещё два в работе.</p>
+    <p class="sub">Четырнадцать опубликованных проектов, порядок — от сложного к базовому. Ещё один в работе.</p>
 
     <div class="grid">
 
@@ -188,6 +190,19 @@
           <div class="links">
             <a href="https://github.com/sher2yja/portfolio/tree/main/devops_projects/ansible-consul-iac">Код</a>
             <a href="https://github.com/sher2yja/portfolio/blob/main/devops_projects/ansible-consul-iac/main_report.md">Отчёт</a>
+          </div>
+        </div>
+      </article>
+
+      <article class="card">
+        <img src="assets/covers/helm-cd-pipeline.jpg" alt="Прогоны конвейера в GitHub Actions" loading="lazy" width="640" height="360">
+        <div class="card-body">
+          <h3>Непрерывная доставка чартом Helm</h3>
+          <p>Чарт едет конвейером GitHub Actions: стадия тестов поднимает одноразовый кластер k3d прямо в раннере, по тегу чарт публикуется в реестр и проверяется уже оттуда.</p>
+          <div class="chips"><span class="chip">Helm</span><span class="chip">GitHub Actions</span><span class="chip">k3d</span><span class="chip">Newman</span></div>
+          <div class="links">
+            <a href="https://github.com/sher2yja/portfolio/tree/main/devops_projects/helm-cd-pipeline">Код</a>
+            <a href="https://github.com/sher2yja/portfolio/blob/main/devops_projects/helm-cd-pipeline/main_report.md">Отчёт</a>
           </div>
         </div>
       </article>

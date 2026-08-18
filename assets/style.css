@@ -233,8 +233,12 @@ section h2::before {
   margin-bottom: 22px;
 }
 
+/* 110px, а не 130: звеньев стало семь. Перенос в flex-wrap считается по
+   flex-basis, а не по фактическому содержимому — 7x130 плюс шесть стрелок и
+   двенадцать зазоров давало 1078 px при 1040 px колонки, и последнее звено
+   уезжало на вторую строку одно, растягиваясь во всю ширину. */
 .step {
-  flex: 1 1 130px;
+  flex: 1 1 110px;
   padding: 12px 14px;
   border: 1px solid var(--border);
   border-left: 3px solid var(--accent);

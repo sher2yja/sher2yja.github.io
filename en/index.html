@@ -4,7 +4,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Alexander Stepanovich — DevOps Engineer</title>
-<meta name="description" content="DevOps portfolio: Kubernetes, Helm, Ansible, Docker, CI/CD and monitoring. Thirteen projects with reports and working configurations.">
+<meta name="description" content="DevOps portfolio: Kubernetes, Helm, Ansible, Docker, CI/CD and monitoring. Fourteen projects with reports and working configurations.">
 <meta property="og:title" content="Alexander Stepanovich — DevOps Engineer">
 <meta property="og:description" content="DevOps portfolio: Kubernetes, Helm, Ansible, Docker, CI/CD and monitoring.">
 <meta property="og:image" content="https://sher2yja.github.io/assets/photo.jpg">
@@ -53,7 +53,7 @@
       <div class="stack-name">Orchestration &amp; containers</div>
       <div class="chips">
         <span class="chip">Kubernetes</span><span class="chip">Helm</span><span class="chip">Kustomize</span>
-        <span class="chip">k3s</span><span class="chip">minikube</span><span class="chip">Docker</span>
+        <span class="chip">k3s</span><span class="chip">k3d</span><span class="chip">minikube</span><span class="chip">Docker</span>
         <span class="chip">Docker Compose</span><span class="chip">Docker Swarm</span><span class="chip">Vagrant</span>
       </div>
     </div>
@@ -61,7 +61,7 @@
       <div class="stack-name">Automation &amp; delivery</div>
       <div class="chips">
         <span class="chip">Ansible</span><span class="chip">Consul</span><span class="chip">Envoy</span>
-        <span class="chip">GitLab CI</span><span class="chip">Git</span><span class="chip">SSH / SCP</span>
+        <span class="chip">GitLab CI</span><span class="chip">GitHub Actions</span><span class="chip">Git</span><span class="chip">SSH / SCP</span>
       </div>
     </div>
     <div class="stack-row">
@@ -84,10 +84,10 @@
 
 <section id="chain">
   <div class="wrap">
-    <h2>One application, six ways to ship it</h2>
+    <h2>One application, seven ways to ship it</h2>
     <div class="callout">
       <p>
-        Six projects deploy <strong>the same application</strong> — a hotel
+        Seven projects deploy <strong>the same application</strong> — a hotel
         booking system of 7 microservices. Only the delivery method changes.
       </p>
       <div class="chips">
@@ -107,6 +107,8 @@
       <div class="step"><b>k3s</b><span>self-hosted cluster</span></div>
       <div class="arrow">→</div>
       <div class="step"><b>Helm</b><span>chart and Kustomize</span></div>
+      <div class="arrow">→</div>
+      <div class="step"><b>Pipeline</b><span>chart delivery</span></div>
     </div>
 
     <p class="sub">
@@ -124,7 +126,7 @@
   <div class="wrap">
     <h2>Projects</h2>
     <p class="sub">
-      Thirteen published projects, ordered from advanced to fundamental; two more
+      Fourteen published projects, ordered from advanced to fundamental; one more
       in progress. <strong>Note:</strong> project READMEs and reports are written
       in Russian — the code, manifests and configurations are language-neutral.
     </p>
@@ -192,6 +194,19 @@
           <div class="links">
             <a href="https://github.com/sher2yja/portfolio/tree/main/devops_projects/ansible-consul-iac">Code</a>
             <a href="https://github.com/sher2yja/portfolio/blob/main/devops_projects/ansible-consul-iac/main_report.md">Report</a>
+          </div>
+        </div>
+      </article>
+
+      <article class="card">
+        <img src="../assets/covers/helm-cd-pipeline.jpg" alt="Pipeline runs in GitHub Actions" loading="lazy" width="640" height="360">
+        <div class="card-body">
+          <h3>Continuous delivery of a Helm chart</h3>
+          <p>The chart travels a GitHub Actions pipeline: the test stage spins up a throwaway k3d cluster inside the runner, and on a tag the chart is published to a registry and verified from there.</p>
+          <div class="chips"><span class="chip">Helm</span><span class="chip">GitHub Actions</span><span class="chip">k3d</span><span class="chip">Newman</span></div>
+          <div class="links">
+            <a href="https://github.com/sher2yja/portfolio/tree/main/devops_projects/helm-cd-pipeline">Code</a>
+            <a href="https://github.com/sher2yja/portfolio/blob/main/devops_projects/helm-cd-pipeline/main_report.md">Report</a>
           </div>
         </div>
       </article>
