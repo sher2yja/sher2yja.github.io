@@ -16,7 +16,20 @@
 
   --radius: 10px;
   --wrap: 1080px;
+
+  /* Тень со смещением и размытием, а не цветной ореол вокруг рамки: на тёмном
+     фоне ореол читается как свечение, а не как высота. */
+  --lift: 0 6px 20px -8px #00000099;
+  --ease: 140ms cubic-bezier(.2, .7, .3, 1);
+
+  /* Поверхности, которые рисует браузер, а не мы: каретка и полоса прокрутки
+     приходят из системной темы и на тёмном фоне выпадают из палитры. */
+  color-scheme: dark;
+  scrollbar-color: var(--border) var(--bg);
+  caret-color: var(--accent);
 }
+
+::selection { background: #1f6feb59; color: var(--text); }
 
 * { box-sizing: border-box; }
 
@@ -31,7 +44,25 @@ body {
 }
 
 a { color: var(--accent); text-decoration: none; }
-a:hover { text-decoration: underline; }
+a:hover { text-decoration: underline; text-underline-offset: 3px; }
+
+/* Фокус с клавиатуры был виден только браузерным пунктиром — на тёмном фоне
+   его практически нет. Обводка идёт со смещением, чтобы не сливаться с рамкой
+   элемента, и повторяет его собственное скругление. */
+:where(a, button, [tabindex]):focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: 2px;
+}
+
+/* html { scroll-behavior: smooth } без этого блока игнорирует системную
+   настройку «меньше движения». */
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    transition-duration: 0.01ms !important;
+  }
+}
 
 code {
   font-family: var(--mono);
@@ -134,9 +165,11 @@ code {
   background: var(--surface);
   color: var(--text);
   font-size: 14px;
+  transition: border-color var(--ease), background-color var(--ease), transform var(--ease);
 }
 
 .btn:hover { border-color: var(--accent); text-decoration: none; }
+.btn:active { transform: translateY(1px); }
 
 .btn-primary {
   background: var(--accent);
@@ -205,9 +238,8 @@ section h2::before {
 
 .callout {
   margin: 0 0 26px;
-  padding: 18px 22px;
+  padding: 20px 24px;
   border: 1px solid var(--border);
-  border-left: 3px solid var(--accent);
   border-radius: var(--radius);
   background: var(--surface);
 }
@@ -241,12 +273,19 @@ section h2::before {
   flex: 1 1 110px;
   padding: 12px 14px;
   border: 1px solid var(--border);
-  border-left: 3px solid var(--accent);
   border-radius: var(--radius);
   background: var(--surface);
 }
 
-.step b { display: block; font-family: var(--mono); font-size: 14px; }
+/* Акцент переехал с планки на само название звена: цепочку читают по именам
+   инструментов, а не по семи одинаковым полоскам слева. Зелёный, а не синий:
+   синий на этом сайте означает ссылку, а звено не кликается. */
+.step b {
+  display: block;
+  font-family: var(--mono);
+  font-size: 14px;
+  color: var(--mono-acc);
+}
 .step span { color: var(--muted); font-size: 12.5px; }
 
 .arrow {
@@ -270,9 +309,18 @@ section h2::before {
   border-radius: var(--radius);
   background: var(--surface);
   overflow: hidden;
+  transition: border-color var(--ease), box-shadow var(--ease), transform var(--ease);
 }
 
-.card:hover { border-color: #2b3444; }
+/* Прежде наведение меняло рамку на полтона, и на тёмном фоне этого почти не
+   было видно. :focus-within — чтобы карточка отзывалась и на обход табом,
+   а не только на мышь. */
+.card:hover,
+.card:focus-within {
+  border-color: #2b3444;
+  box-shadow: var(--lift);
+  transform: translateY(-2px);
+}
 
 /* Все обложки ровно 640x360, поэтому пропорцию задаёт само изображение.
    С aspect-ratio + object-fit: cover контейнер оказывался выше 16:9
@@ -293,7 +341,67 @@ section h2::before {
 
 .card .chips { margin-bottom: 14px; }
 
-.links { display: flex; gap: 14px; font-size: 14px; font-family: var(--mono); }
+.links { display: flex; flex-wrap: wrap; gap: 14px; font-size: 14px; font-family: var(--mono); }
+
+.links a {
+  border-bottom: 1px solid #2b3444;
+  transition: border-color var(--ease);
+}
+
+.links a:hover { border-bottom-color: var(--accent); text-decoration: none; }
+
+/* ---------- собственный продукт ---------- */
+
+/* Широкая карточка на всю колонку, а не ячейка сетки: продукт стоит в
+   портфолио особняком, и плитка, одинаковая с двадцатью отчётами, это
+   различие стирает. */
+.product {
+  display: grid;
+  /* 6:5 в пользу обложки, а не наоборот: колонки связаны обратно — чем уже
+     колонка с текстом, тем он выше, и при 5:6 снимок оказывался на 160 px
+     ниже текста, а поля над ним и под ним читались как дыра. */
+  grid-template-columns: minmax(0, 6fr) minmax(0, 5fr);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  background: var(--surface);
+  overflow: hidden;
+  transition: border-color var(--ease), box-shadow var(--ease);
+}
+
+.product:hover,
+.product:focus-within {
+  border-color: #2b3444;
+  box-shadow: var(--lift);
+}
+
+/* Обложка не растягивается под высоту текста: 640x360 сняты с окна программы,
+   и object-fit: cover срезал бы у него как раз список сервисов. */
+.product-shot {
+  display: flex;
+  align-items: center;
+  background: var(--bg);
+  border-right: 1px solid var(--border);
+}
+
+.product-shot img { display: block; width: 100%; height: auto; }
+
+.product-body {
+  padding: 24px 26px;
+  display: flex;
+  flex-direction: column;
+}
+
+.product-body h3 {
+  margin: 0 0 10px;
+  font-size: 19px;
+  letter-spacing: -0.01em;
+}
+
+.product-body p { margin: 0 0 12px; color: #c9d4de; font-size: 15px; }
+
+.product-body .chips { margin: 4px 0 16px; }
+
+.product-body .links { margin-top: auto; }
 
 /* ---------- опыт ---------- */
 
@@ -323,6 +431,14 @@ footer .actions { margin-bottom: 20px; }
 
 /* ---------- узкий экран ---------- */
 
+/* Продукт складывается раньше прочего: в две колонки текст рядом с обложкой
+   становится нечитаемо узким уже около 860 px, задолго до мобильной ширины. */
+@media (max-width: 860px) {
+  .product { grid-template-columns: 1fr; }
+  .product-shot { border-right: none; border-bottom: 1px solid var(--border); }
+  .stack-row { grid-template-columns: 160px 1fr; }
+}
+
 @media (max-width: 640px) {
   .hero { flex-direction: column; gap: 18px; padding-bottom: 30px; }
   .avatar { width: 92px; height: 92px; }
@@ -331,5 +447,6 @@ footer .actions { margin-bottom: 20px; }
   .callout { padding: 14px 16px; }
   .facts li { grid-template-columns: 1fr; gap: 4px; }
   .arrow { display: none; }
+  .product-body { padding: 18px 18px 20px; }
   section { padding: 34px 0; }
 }

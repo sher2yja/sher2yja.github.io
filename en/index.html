@@ -4,9 +4,9 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Alexander Stepanovich — DevOps Engineer</title>
-<meta name="description" content="DevOps portfolio: Kubernetes, Helm, Ansible, Docker, CI/CD and monitoring. Twenty projects with reports and working configurations.">
+<meta name="description" content="DevOps portfolio: Kubernetes, Helm, Ansible, Docker, CI/CD and monitoring. Twenty projects with reports and working configurations, plus a product of my own on k3s with releases.">
 <meta property="og:title" content="Alexander Stepanovich — DevOps Engineer">
-<meta property="og:description" content="DevOps portfolio: Kubernetes, Helm, Ansible, Docker, CI/CD and monitoring.">
+<meta property="og:description" content="DevOps portfolio: Kubernetes, Helm, Ansible, Docker, CI/CD and monitoring. Twenty projects and a product of my own on k3s.">
 <meta property="og:image" content="https://sher2yja.github.io/assets/photo.jpg">
 <meta property="og:url" content="https://sher2yja.github.io/en/">
 <meta property="og:type" content="profile">
@@ -29,8 +29,10 @@
           I build infrastructure end to end — from installing a Linux server
           in the console to continuous delivery onto a Kubernetes cluster: Helm
           charts, CI/CD pipelines, monitoring with Prometheus and Grafana. Every
-          project here is a working setup on virtual machines: deployed, verified
-          and documented in a report with screenshots of the commands and their output.
+          project here is deployed and verified on a live setup, then documented
+          in a report with screenshots of the commands and their output. One of
+          them went further and became a product: it installs from a single
+          downloaded file.
         </p>
         <div class="actions">
           <a class="btn btn-primary" href="https://github.com/sher2yja/portfolio">Portfolio on GitHub</a>
@@ -84,7 +86,7 @@
       <div class="stack-name">Languages &amp; concurrency</div>
       <div class="chips">
         <span class="chip">Python</span><span class="chip">multiprocessing</span><span class="chip">asyncio</span>
-        <span class="chip">aiohttp</span>
+        <span class="chip">aiohttp</span><span class="chip">tkinter</span><span class="chip">PyInstaller</span>
       </div>
     </div>
   </div>
@@ -127,6 +129,30 @@
       a database on Kubernetes needs the <code>Recreate</code> strategy rather
       than <code>RollingUpdate</code>.
     </p>
+  </div>
+</section>
+
+<section id="product">
+  <div class="wrap">
+    <h2>A product of my own</h2>
+    <p class="sub">Not a report about a test setup but a program: people download it, run it and use it. The only work here that has a version and releases.</p>
+
+    <article class="product">
+      <div class="product-shot">
+        <img src="../assets/covers/home-media-k3s.jpg" alt="The application window: all seven media server services are up and responding" width="640" height="360">
+      </div>
+      <div class="product-body">
+        <h3>Home media server on k3s</h3>
+        <p>Six media library services live in a k3s cluster, and one downloaded file installs them onto someone else&#39;s machine — no command line and no dependencies at all. The program brings the cluster up itself, maps volumes onto the folders the user picked and wires the services to each other over their APIs.</p>
+        <p>On every tag the pipeline brings up a real k3s and runs the installation with the same code that reaches the user. The release publishes exactly the artifact that passed the checks — nothing is rebuilt at that step.</p>
+        <div class="chips"><span class="chip">k3s</span><span class="chip">Kustomize</span><span class="chip">Python</span><span class="chip">tkinter</span><span class="chip">Ansible</span><span class="chip">GitHub Actions</span></div>
+        <div class="links">
+          <a href="https://github.com/sher2yja/home-media-k3s">Repository</a>
+          <a href="https://github.com/sher2yja/home-media-k3s/releases">Releases</a>
+          <a href="https://github.com/sher2yja/home-media-k3s/blob/master/DEVELOPMENT.md">How it works</a>
+        </div>
+      </div>
+    </article>
   </div>
 </section>
 

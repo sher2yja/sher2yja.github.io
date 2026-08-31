@@ -4,9 +4,9 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Александр Степанович — DevOps-инженер</title>
-<meta name="description" content="Портфолио DevOps: Kubernetes, Helm, Ansible, Docker, CI/CD и мониторинг. Двадцать проектов с отчётами и рабочими конфигурациями.">
+<meta name="description" content="Портфолио DevOps: Kubernetes, Helm, Ansible, Docker, CI/CD и мониторинг. Двадцать проектов с отчётами и рабочими конфигурациями плюс собственный продукт на k3s с релизами.">
 <meta property="og:title" content="Александр Степанович — DevOps-инженер">
-<meta property="og:description" content="Портфолио DevOps: Kubernetes, Helm, Ansible, Docker, CI/CD и мониторинг.">
+<meta property="og:description" content="Портфолио DevOps: Kubernetes, Helm, Ansible, Docker, CI/CD и мониторинг. Двадцать проектов и собственный продукт на k3s.">
 <meta property="og:image" content="https://sher2yja.github.io/assets/photo.jpg">
 <meta property="og:url" content="https://sher2yja.github.io/">
 <meta property="og:type" content="profile">
@@ -28,9 +28,10 @@
         <p class="lead">
           Собираю инфраструктуру целиком — от установки Linux-сервера в консоли
           до непрерывной доставки в кластер Kubernetes: чарты Helm, конвейеры
-          CI/CD, мониторинг на Prometheus и Grafana. Каждый проект здесь это
-          работающий стенд на виртуальных машинах: развёрнут, проверен
-          и разобран в отчёте со скриншотами команд и их вывода.
+          CI/CD, мониторинг на Prometheus и Grafana. Каждый проект здесь
+          развёрнут и проверен на живом стенде и разобран в отчёте
+          со скриншотами команд и их вывода. А один доведён до продукта:
+          его ставят одним скачанным файлом.
         </p>
         <div class="actions">
           <a class="btn btn-primary" href="https://github.com/sher2yja/portfolio">Портфолио на GitHub</a>
@@ -84,7 +85,7 @@
       <div class="stack-name">Языки и параллелизм</div>
       <div class="chips">
         <span class="chip">Python</span><span class="chip">multiprocessing</span><span class="chip">asyncio</span>
-        <span class="chip">aiohttp</span>
+        <span class="chip">aiohttp</span><span class="chip">tkinter</span><span class="chip">PyInstaller</span>
       </div>
     </div>
   </div>
@@ -127,6 +128,30 @@
       отличается от <code>replicated</code> при том же наборе сервисов и почему
       база в Kubernetes требует стратегии <code>Recreate</code>, а не <code>RollingUpdate</code>.
     </p>
+  </div>
+</section>
+
+<section id="product">
+  <div class="wrap">
+    <h2>Собственный продукт</h2>
+    <p class="sub">Не отчёт о стенде, а программа: её скачивают, запускают и ей пользуются. Единственная работа здесь с версией и релизами.</p>
+
+    <article class="product">
+      <div class="product-shot">
+        <img src="assets/covers/home-media-k3s.jpg" alt="Окно программы: семь сервисов медиасервера подняты и отвечают" width="640" height="360">
+      </div>
+      <div class="product-body">
+        <h3>Домашний медиасервер на k3s</h3>
+        <p>Шесть сервисов медиатеки живут в кластере k3s, а ставит их на чужую машину один скачанный файл — без командной строки и без единой зависимости. Программа сама поднимает кластер, раскладывает тома по выбранным папкам и связывает сервисы между собой по их API.</p>
+        <p>Конвейер на каждый тег поднимает настоящий k3s и прогоняет установку тем же кодом, что попадёт к пользователю. Релиз выкладывает ровно тот артефакт, который прошёл проверки, — пересборки на этом шаге нет.</p>
+        <div class="chips"><span class="chip">k3s</span><span class="chip">Kustomize</span><span class="chip">Python</span><span class="chip">tkinter</span><span class="chip">Ansible</span><span class="chip">GitHub Actions</span></div>
+        <div class="links">
+          <a href="https://github.com/sher2yja/home-media-k3s">Репозиторий</a>
+          <a href="https://github.com/sher2yja/home-media-k3s/releases">Релизы</a>
+          <a href="https://github.com/sher2yja/home-media-k3s/blob/master/DEVELOPMENT.md">Как устроено</a>
+        </div>
+      </div>
+    </article>
   </div>
 </section>
 
