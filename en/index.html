@@ -4,9 +4,9 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Alexander Stepanovich — DevOps Engineer</title>
-<meta name="description" content="DevOps portfolio: Kubernetes, Helm, Ansible, Docker, CI/CD and monitoring. Twenty projects with reports and working configurations, plus a product of my own on k3s with releases.">
+<meta name="description" content="DevOps portfolio: Kubernetes, Helm, Ansible, Docker, CI/CD and monitoring. Twenty projects with reports and working configurations, plus two home-media products for Linux and Windows.">
 <meta property="og:title" content="Alexander Stepanovich — DevOps Engineer">
-<meta property="og:description" content="DevOps portfolio: Kubernetes, Helm, Ansible, Docker, CI/CD and monitoring. Twenty projects and a product of my own on k3s.">
+<meta property="og:description" content="DevOps portfolio: Kubernetes, Helm, Ansible, Docker, CI/CD and monitoring. Twenty projects and two home-media products.">
 <meta property="og:image" content="https://sher2yja.github.io/assets/photo.jpg">
 <meta property="og:url" content="https://sher2yja.github.io/en/">
 <meta property="og:type" content="profile">
@@ -134,8 +134,8 @@
 
 <section id="product">
   <div class="wrap">
-    <h2>A product of my own</h2>
-    <p class="sub">Not a report about a test setup but a program: people download it, run it and use it. The only work here that has a version and releases.</p>
+    <h2>Products of my own</h2>
+    <p class="sub">One media stack for two use cases: k3s on Linux and Docker Compose in WSL2 on Windows. Both are programs people download, run and use.</p>
 
     <article class="product">
       <div class="product-shot">
@@ -150,6 +150,23 @@
           <a href="https://github.com/sher2yja/home-media-k3s">Repository</a>
           <a href="https://github.com/sher2yja/home-media-k3s/releases">Releases</a>
           <a href="https://github.com/sher2yja/home-media-k3s/blob/master/DEVELOPMENT.md">How it works</a>
+        </div>
+      </div>
+    </article>
+
+    <article class="product">
+      <div class="product-shot">
+        <img src="../assets/covers/home-media-lite.jpg" alt="Home Media Lite service-wiring code" width="640" height="360">
+      </div>
+      <div class="product-body">
+        <h3>Home Media Lite for Windows</h3>
+        <p>The same media stack without a cluster: one <code>.exe</code> prepares WSL2 and Docker Desktop, starts seven containers and wires the services together over their APIs.</p>
+        <p>One button shuts the entire stack down so it does not occupy memory around the clock. Before a release, e2e brings up the real Compose stack and tests the same installation path the user receives.</p>
+        <div class="chips"><span class="chip">Docker Compose</span><span class="chip">WSL2</span><span class="chip">Python</span><span class="chip">tkinter</span><span class="chip">GitHub Actions</span></div>
+        <div class="links">
+          <a href="https://github.com/sher2yja/home-media-lite">Repository</a>
+          <a href="https://github.com/sher2yja/home-media-lite/releases">Releases</a>
+          <a href="https://github.com/sher2yja/home-media-lite/blob/master/DEVELOPMENT.md">How it works</a>
         </div>
       </div>
     </article>
