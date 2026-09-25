@@ -4,9 +4,9 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Александр Степанович — DevOps-инженер</title>
-<meta name="description" content="Портфолио DevOps: Kubernetes, Helm, Ansible, Docker, CI/CD и мониторинг. Двадцать проектов с отчётами и рабочими конфигурациями плюс два собственных медиапродукта для Linux и Windows.">
+<meta name="description" content="Портфолио DevOps: Kubernetes, Helm, Ansible, Docker, CI/CD и мониторинг. Двадцать один проект с отчётами и рабочими конфигурациями плюс два собственных медиапродукта для Linux и Windows.">
 <meta property="og:title" content="Александр Степанович — DevOps-инженер">
-<meta property="og:description" content="Портфолио DevOps: Kubernetes, Helm, Ansible, Docker, CI/CD и мониторинг. Двадцать проектов и два собственных медиапродукта.">
+<meta property="og:description" content="Портфолио DevOps: Kubernetes, Helm, Ansible, Docker, CI/CD и мониторинг. Двадцать один проект и два собственных медиапродукта.">
 <meta property="og:image" content="https://sher2yja.github.io/assets/photo.jpg">
 <meta property="og:url" content="https://sher2yja.github.io/">
 <meta property="og:type" content="profile">
@@ -29,9 +29,9 @@
           Собираю инфраструктуру целиком — от установки Linux-сервера в консоли
           до непрерывной доставки в кластер Kubernetes: чарты Helm, конвейеры
           CI/CD, мониторинг на Prometheus и Grafana. Каждый проект здесь
-          развёрнут и проверен на живом стенде и разобран в отчёте
-          со скриншотами команд и их вывода. А один доведён до продукта:
-          его ставят одним скачанным файлом.
+          развёрнут и проверен на живом стенде и разобран в отчёте.
+          Два собственных медиапроекта выпускаются отдельными продуктами
+          для Linux и Windows.
         </p>
         <div class="actions">
           <a class="btn btn-primary" href="https://github.com/sher2yja/portfolio">Портфолио на GitHub</a>
@@ -175,9 +175,22 @@
 <section id="projects">
   <div class="wrap">
     <h2>Проекты</h2>
-    <p class="sub">Двадцать опубликованных проектов, порядок — от сложного к базовому.</p>
+    <p class="sub">Двадцать один опубликованный проект, порядок — от сложного к базовому.</p>
 
     <div class="grid">
+
+      <article class="card">
+        <img src="assets/covers/n8n-k3s-local.jpg" alt="Манифесты локального кластера n8n" loading="lazy" width="640" height="360">
+        <div class="card-body">
+          <h3>n8n в локальном кластере k3s</h3>
+          <p>Ansible готовит VM с k3s, а GitHub Actions через отдельную runner-VM доставляет три роли n8n в staging и production. Проверены восстановление credentials и развёртывание из свежего публичного клона.</p>
+          <div class="chips"><span class="chip">Ansible</span><span class="chip">k3s</span><span class="chip">Helm</span><span class="chip">GitHub Actions</span></div>
+          <div class="links">
+            <a href="https://github.com/sher2yja/portfolio/tree/main/devops_projects/n8n-k3s-local">Код</a>
+            <a href="https://github.com/sher2yja/portfolio/blob/main/devops_projects/n8n-k3s-local/main_report.md">Отчёт</a>
+          </div>
+        </div>
+      </article>
 
       <article class="card">
         <img src="assets/covers/helm-cd-pipeline.jpg" alt="Прогоны конвейера в GitHub Actions" loading="lazy" width="640" height="360">

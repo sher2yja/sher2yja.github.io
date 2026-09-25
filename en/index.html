@@ -4,9 +4,9 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Alexander Stepanovich — DevOps Engineer</title>
-<meta name="description" content="DevOps portfolio: Kubernetes, Helm, Ansible, Docker, CI/CD and monitoring. Twenty projects with reports and working configurations, plus two home-media products for Linux and Windows.">
+<meta name="description" content="DevOps portfolio: Kubernetes, Helm, Ansible, Docker, CI/CD and monitoring. Twenty-one projects with reports and working configurations, plus two home-media products for Linux and Windows.">
 <meta property="og:title" content="Alexander Stepanovich — DevOps Engineer">
-<meta property="og:description" content="DevOps portfolio: Kubernetes, Helm, Ansible, Docker, CI/CD and monitoring. Twenty projects and two home-media products.">
+<meta property="og:description" content="DevOps portfolio: Kubernetes, Helm, Ansible, Docker, CI/CD and monitoring. Twenty-one projects and two home-media products.">
 <meta property="og:image" content="https://sher2yja.github.io/assets/photo.jpg">
 <meta property="og:url" content="https://sher2yja.github.io/en/">
 <meta property="og:type" content="profile">
@@ -30,9 +30,8 @@
           in the console to continuous delivery onto a Kubernetes cluster: Helm
           charts, CI/CD pipelines, monitoring with Prometheus and Grafana. Every
           project here is deployed and verified on a live setup, then documented
-          in a report with screenshots of the commands and their output. One of
-          them went further and became a product: it installs from a single
-          downloaded file.
+          in a report. Two separate home-media products are released for Linux
+          and Windows.
         </p>
         <div class="actions">
           <a class="btn btn-primary" href="https://github.com/sher2yja/portfolio">Portfolio on GitHub</a>
@@ -177,12 +176,25 @@
   <div class="wrap">
     <h2>Projects</h2>
     <p class="sub">
-      Twenty published projects, ordered from advanced to fundamental.
+      Twenty-one published projects, ordered from advanced to fundamental.
       <strong>Note:</strong> project READMEs and reports are written
       in Russian — the code, manifests and configurations are language-neutral.
     </p>
 
     <div class="grid">
+
+      <article class="card">
+        <img src="../assets/covers/n8n-k3s-local.jpg" alt="Local n8n cluster manifests" loading="lazy" width="640" height="360">
+        <div class="card-body">
+          <h3>n8n on local k3s VMs</h3>
+          <p>Ansible prepares a k3s VM, while GitHub Actions deploys three n8n roles to staging and production through a separate runner VM. Credential restoration and setup from a fresh public clone were verified.</p>
+          <div class="chips"><span class="chip">Ansible</span><span class="chip">k3s</span><span class="chip">Helm</span><span class="chip">GitHub Actions</span></div>
+          <div class="links">
+            <a href="https://github.com/sher2yja/portfolio/tree/main/devops_projects/n8n-k3s-local">Code</a>
+            <a href="https://github.com/sher2yja/portfolio/blob/main/devops_projects/n8n-k3s-local/main_report.md">Report</a>
+          </div>
+        </div>
+      </article>
 
       <article class="card">
         <img src="../assets/covers/helm-cd-pipeline.jpg" alt="Pipeline runs in GitHub Actions" loading="lazy" width="640" height="360">
