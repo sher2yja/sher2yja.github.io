@@ -18,33 +18,81 @@
 <header class="top">
   <div class="wrap">
     <div class="top-bar">
+      <a class="brand" href="#top" aria-label="В начало страницы">AS<span class="brand-mark">/</span> DevOps</a>
+      <nav class="site-nav" aria-label="Основная навигация">
+        <a href="#product">Продукты</a>
+        <a href="#featured">Избранное</a>
+        <a href="#projects">Все проекты</a>
+        <a href="#background">Обо мне</a>
+      </nav>
       <nav class="lang"><span class="on">RU</span><a href="en/">EN</a></nav>
     </div>
-    <div class="hero">
-      <img class="avatar" src="assets/photo.jpg" alt="Александр Степанович" width="120" height="120">
-      <div>
+    <div class="hero" id="top">
+      <img class="avatar" src="assets/photo.jpg" alt="Александр Степанович" width="320" height="320">
+      <div class="hero-copy">
         <h1>Александр Степанович</h1>
         <p class="role">DevOps-инженер<span class="dot">·</span>Москва</p>
+        <p class="hero-thesis">Инфраструктура от Linux до Kubernetes.</p>
         <p class="lead">
-          Собираю инфраструктуру целиком — от установки Linux-сервера в консоли
-          до непрерывной доставки в кластер Kubernetes: чарты Helm, конвейеры
-          CI/CD, мониторинг на Prometheus и Grafana. Каждый проект здесь
-          развёрнут и проверен на живом стенде и разобран в отчёте.
-          Два собственных медиапроекта выпускаются отдельными продуктами
-          для Linux и Windows.
+          Автоматизирую развёртывание, доставку и мониторинг сервисов.
+          Здесь — два собственных продукта и 21 проект с конфигурациями,
+          работающими стендами и подробными отчётами.
         </p>
         <div class="actions">
-          <a class="btn btn-primary" href="https://github.com/sher2yja/portfolio">Портфолио на GitHub</a>
+          <a class="btn btn-primary" href="#featured">Избранные проекты</a>
           <a class="btn" href="assets/cv/Stepanovich_Alexander_CV.pdf">Резюме PDF</a>
-          <a class="btn" href="https://hh.ru/resume/a9046819ff0bac81c10039ed1f71646e4b5454">Резюме на hh.ru</a>
+          <a class="btn" href="https://github.com/sher2yja/portfolio">GitHub</a>
           <a class="btn" href="https://t.me/Alexander_Stepanovich">Telegram</a>
         </div>
       </div>
+      <aside class="hero-aside" aria-label="Фокус портфолио">
+        <p class="hero-aside-title">В фокусе</p>
+        <a href="#product"><span>01</span> Собственные продукты <span aria-hidden="true">↗</span></a>
+        <a href="#featured"><span>02</span> Проверенные кейсы <span aria-hidden="true">↗</span></a>
+        <a href="#chain"><span>03</span> Семь способов доставки <span aria-hidden="true">↗</span></a>
+      </aside>
     </div>
   </div>
 </header>
 
 <main>
+
+<section id="product">
+  <div class="wrap">
+    <div class="section-heading"><div><h2>Собственные продукты</h2><p class="sub">Два выпускаемых решения для домашней инфраструктуры: k3s на Linux и Docker Compose в WSL2 на Windows.</p></div><a href="#projects">Все проекты →</a></div>
+    <div class="product-list">
+      <article class="product">
+        <div class="product-shot"><img src="assets/covers/home-media-k3s.jpg" alt="Окно программы: семь сервисов медиасервера подняты и отвечают" width="640" height="360"></div>
+        <div class="product-body">
+          <h3>Домашний медиасервер на k3s</h3>
+          <p>Шесть сервисов медиатеки живут в кластере k3s, а ставит их на чужую машину один скачанный файл — без командной строки и дополнительных зависимостей.</p>
+          <div class="chips"><span class="chip">k3s</span><span class="chip">Kustomize</span><span class="chip">Python</span><span class="chip">Ansible</span></div>
+          <div class="links"><a href="https://github.com/sher2yja/home-media-k3s">Репозиторий</a><a href="https://github.com/sher2yja/home-media-k3s/releases">Релизы</a><a href="https://github.com/sher2yja/home-media-k3s/blob/master/DEVELOPMENT.md">Как устроено</a></div>
+        </div>
+      </article>
+      <article class="product">
+        <div class="product-shot"><img src="assets/covers/home-media-lite.jpg" alt="Код связывания сервисов Home Media Lite" width="640" height="360"></div>
+        <div class="product-body">
+          <h3>Home Media Lite для Windows</h3>
+          <p>Тот же медиастек без кластера: один <code>.exe</code> готовит WSL2 и Docker Desktop, поднимает семь контейнеров и связывает сервисы через их API.</p>
+          <div class="chips"><span class="chip">Docker Compose</span><span class="chip">WSL2</span><span class="chip">Python</span><span class="chip">GitHub Actions</span></div>
+          <div class="links"><a href="https://github.com/sher2yja/home-media-lite">Репозиторий</a><a href="https://github.com/sher2yja/home-media-lite/releases">Релизы</a><a href="https://github.com/sher2yja/home-media-lite/blob/master/DEVELOPMENT.md">Как устроено</a></div>
+        </div>
+      </article>
+    </div>
+  </div>
+</section>
+
+<section id="featured">
+  <div class="wrap">
+    <div class="section-heading"><div><h2>Избранные проекты</h2><p class="sub">Три примера: локальный кластер, доставка приложений и наблюдаемость.</p></div><a href="#projects">Все 21 проект →</a></div>
+    <div class="featured-grid">
+      <article class="featured-card"><a href="https://github.com/sher2yja/portfolio/tree/main/devops_projects/n8n-k3s-local"><img src="assets/covers/n8n-k3s-local.jpg" alt="Манифесты локального кластера n8n" width="640" height="360"><span class="featured-body"><strong>n8n в локальном k3s</strong><span>Ansible готовит VM, а GitHub Actions доставляет n8n в staging и production.</span><span class="featured-link">Смотреть проект →</span></span></a></article>
+      <article class="featured-card"><a href="https://github.com/sher2yja/portfolio/tree/main/devops_projects/helm-cd-pipeline"><img src="assets/covers/helm-cd-pipeline.jpg" alt="Прогоны конвейера в GitHub Actions" width="640" height="360"><span class="featured-body"><strong>Доставка чартом Helm</strong><span>Конвейер проверяет чарт в одноразовом кластере k3d и публикует релиз.</span><span class="featured-link">Смотреть проект →</span></span></a></article>
+      <article class="featured-card"><a href="https://github.com/sher2yja/portfolio/tree/main/devops_projects/observability-stack"><img src="assets/covers/observability-stack.jpg" alt="Панель мониторинга инфраструктуры" width="640" height="360"><span class="featured-body"><strong>Стек наблюдаемости</strong><span>Метрики, журналы и оповещения собраны в отдельный инфраструктурный контур.</span><span class="featured-link">Смотреть проект →</span></span></a></article>
+    </div>
+  </div>
+</section>
 
 <section id="stack">
   <div class="wrap">
@@ -128,47 +176,6 @@
       отличается от <code>replicated</code> при том же наборе сервисов и почему
       база в Kubernetes требует стратегии <code>Recreate</code>, а не <code>RollingUpdate</code>.
     </p>
-  </div>
-</section>
-
-<section id="product">
-  <div class="wrap">
-    <h2>Собственные продукты</h2>
-    <p class="sub">Один медиастек для двух задач: k3s на Linux и Docker Compose в WSL2 на Windows. Обе программы скачивают, запускают и ими пользуются.</p>
-
-    <article class="product">
-      <div class="product-shot">
-        <img src="assets/covers/home-media-k3s.jpg" alt="Окно программы: семь сервисов медиасервера подняты и отвечают" width="640" height="360">
-      </div>
-      <div class="product-body">
-        <h3>Домашний медиасервер на k3s</h3>
-        <p>Шесть сервисов медиатеки живут в кластере k3s, а ставит их на чужую машину один скачанный файл — без командной строки и без единой зависимости. Программа сама поднимает кластер, раскладывает тома по выбранным папкам и связывает сервисы между собой по их API.</p>
-        <p>Конвейер на каждый тег поднимает настоящий k3s и прогоняет установку тем же кодом, что попадёт к пользователю. Релиз выкладывает ровно тот артефакт, который прошёл проверки, — пересборки на этом шаге нет.</p>
-        <div class="chips"><span class="chip">k3s</span><span class="chip">Kustomize</span><span class="chip">Python</span><span class="chip">tkinter</span><span class="chip">Ansible</span><span class="chip">GitHub Actions</span></div>
-        <div class="links">
-          <a href="https://github.com/sher2yja/home-media-k3s">Репозиторий</a>
-          <a href="https://github.com/sher2yja/home-media-k3s/releases">Релизы</a>
-          <a href="https://github.com/sher2yja/home-media-k3s/blob/master/DEVELOPMENT.md">Как устроено</a>
-        </div>
-      </div>
-    </article>
-
-    <article class="product">
-      <div class="product-shot">
-        <img src="assets/covers/home-media-lite.jpg" alt="Код связывания сервисов Home Media Lite" width="640" height="360">
-      </div>
-      <div class="product-body">
-        <h3>Home Media Lite для Windows</h3>
-        <p>Тот же медиастек без кластера: один <code>.exe</code> готовит WSL2 и Docker Desktop, поднимает семь контейнеров и связывает сервисы через их API.</p>
-        <p>Всеь стек выключается одной кнопкой и не занимает память круглосуточно. E2E поднимает настоящий compose-стек до публикации релиза.</p>
-        <div class="chips"><span class="chip">Docker Compose</span><span class="chip">WSL2</span><span class="chip">Python</span><span class="chip">tkinter</span><span class="chip">GitHub Actions</span></div>
-        <div class="links">
-          <a href="https://github.com/sher2yja/home-media-lite">Репозиторий</a>
-          <a href="https://github.com/sher2yja/home-media-lite/releases">Релизы</a>
-          <a href="https://github.com/sher2yja/home-media-lite/blob/master/DEVELOPMENT.md">Как устроено</a>
-        </div>
-      </div>
-    </article>
   </div>
 </section>
 

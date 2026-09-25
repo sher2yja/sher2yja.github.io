@@ -18,33 +18,112 @@
 <header class="top">
   <div class="wrap">
     <div class="top-bar">
+      <a class="brand" href="#top" aria-label="Back to the top">AS<span class="brand-mark">/</span> DevOps</a>
+      <nav class="site-nav" aria-label="Main navigation">
+        <a href="#product">Products</a>
+        <a href="#featured">Selected work</a>
+        <a href="#projects">All projects</a>
+        <a href="#background">About</a>
+      </nav>
       <nav class="lang"><a href="../">RU</a><span class="on">EN</span></nav>
     </div>
-    <div class="hero">
-      <img class="avatar" src="../assets/photo.jpg" alt="Alexander Stepanovich" width="120" height="120">
-      <div>
+    <div class="hero" id="top">
+      <img class="avatar" src="../assets/photo.jpg" alt="Portrait of Alexander Stepanovich" width="320" height="320">
+      <div class="hero-copy">
         <h1>Alexander Stepanovich</h1>
         <p class="role">DevOps Engineer<span class="dot">·</span>Moscow</p>
+        <p class="hero-thesis">Infrastructure from Linux to Kubernetes.</p>
         <p class="lead">
-          I build infrastructure end to end — from installing a Linux server
-          in the console to continuous delivery onto a Kubernetes cluster: Helm
-          charts, CI/CD pipelines, monitoring with Prometheus and Grafana. Every
-          project here is deployed and verified on a live setup, then documented
-          in a report. Two separate home-media products are released for Linux
-          and Windows.
+          I build infrastructure from Linux hosts to Kubernetes delivery:
+          automation, CI/CD, and monitoring. Explore two released home-media
+          products and 21 documented engineering projects.
         </p>
         <div class="actions">
-          <a class="btn btn-primary" href="https://github.com/sher2yja/portfolio">Portfolio on GitHub</a>
+          <a class="btn btn-primary" href="#featured">Explore selected work</a>
           <a class="btn" href="../assets/cv/Stepanovich_Alexander_CV.pdf">CV (PDF)</a>
+          <a class="btn" href="https://github.com/sher2yja/portfolio">GitHub</a>
           <a class="btn" href="https://t.me/Alexander_Stepanovich">Telegram</a>
-          <a class="btn" href="mailto:iskstep93@gmail.com">Email</a>
         </div>
       </div>
+      <aside class="hero-aside" aria-label="Portfolio at a glance">
+        <p class="hero-aside-title">Explore</p>
+        <a href="#product"><span>01</span> Released products <span aria-hidden="true">↗</span></a>
+        <a href="#featured"><span>02</span> Selected case studies <span aria-hidden="true">↗</span></a>
+        <a href="#chain"><span>03</span> Seven ways to ship <span aria-hidden="true">↗</span></a>
+      </aside>
     </div>
   </div>
 </header>
 
 <main>
+
+<section id="product">
+  <div class="wrap">
+    <div class="section-heading"><div><h2>Products of my own</h2><p class="sub">One media stack for two use cases: k3s on Linux and Docker Compose in WSL2 on Windows.</p></div><a href="#projects">All projects →</a></div>
+
+    <div class="product-list">
+      <article class="product">
+        <div class="product-shot">
+          <img src="../assets/covers/home-media-k3s.jpg" alt="The application window: all seven media server services are up and responding" width="640" height="360">
+        </div>
+        <div class="product-body">
+          <h3>Home media server on k3s</h3>
+          <p>Six media library services live in a k3s cluster, and one downloaded file installs them onto someone else&#39;s machine — no command line and no dependencies at all. The program brings the cluster up itself, maps volumes onto the folders the user picked and wires the services to each other over their APIs.</p>
+          <p>On every tag the pipeline brings up a real k3s and runs the installation with the same code that reaches the user. The release publishes exactly the artifact that passed the checks — nothing is rebuilt at that step.</p>
+          <div class="chips"><span class="chip">k3s</span><span class="chip">Kustomize</span><span class="chip">Python</span><span class="chip">tkinter</span><span class="chip">Ansible</span><span class="chip">GitHub Actions</span></div>
+          <div class="links">
+            <a href="https://github.com/sher2yja/home-media-k3s">Repository</a>
+            <a href="https://github.com/sher2yja/home-media-k3s/releases">Releases</a>
+            <a href="https://github.com/sher2yja/home-media-k3s/blob/master/DEVELOPMENT.md">How it works</a>
+          </div>
+        </div>
+      </article>
+
+      <article class="product">
+        <div class="product-shot">
+          <img src="../assets/covers/home-media-lite.jpg" alt="Home Media Lite service-wiring code" width="640" height="360">
+        </div>
+        <div class="product-body">
+          <h3>Home Media Lite for Windows</h3>
+          <p>The same media stack without a cluster: one <code>.exe</code> prepares WSL2 and Docker Desktop, starts seven containers and wires the services together over their APIs.</p>
+          <p>One button shuts the entire stack down so it does not occupy memory around the clock. Before a release, e2e brings up the real Compose stack and tests the same installation path the user receives.</p>
+          <div class="chips"><span class="chip">Docker Compose</span><span class="chip">WSL2</span><span class="chip">Python</span><span class="chip">tkinter</span><span class="chip">GitHub Actions</span></div>
+          <div class="links">
+            <a href="https://github.com/sher2yja/home-media-lite">Repository</a>
+            <a href="https://github.com/sher2yja/home-media-lite/releases">Releases</a>
+            <a href="https://github.com/sher2yja/home-media-lite/blob/master/DEVELOPMENT.md">How it works</a>
+          </div>
+        </div>
+      </article>
+    </div>
+  </div>
+</section>
+
+<section id="featured">
+  <div class="wrap">
+    <div class="section-heading"><div><h2>Selected engineering work</h2><p class="sub">Three case studies across delivery, orchestration, and observability.</p></div><a href="#projects">All 21 projects →</a></div>
+    <div class="featured-grid">
+      <article class="featured-card">
+        <a href="https://github.com/sher2yja/portfolio/tree/main/devops_projects/n8n-k3s-local">
+          <img src="../assets/covers/n8n-k3s-local.jpg" alt="Local n8n cluster manifests" loading="lazy" width="640" height="360">
+          <span class="featured-body"><strong>n8n on local k3s VMs</strong><span>Ansible prepares a k3s VM; GitHub Actions deploys three n8n roles through a separate runner VM.</span><span class="featured-link">View case study →</span></span>
+        </a>
+      </article>
+      <article class="featured-card">
+        <a href="https://github.com/sher2yja/portfolio/tree/main/devops_projects/helm-cd-pipeline">
+          <img src="../assets/covers/helm-cd-pipeline.jpg" alt="Pipeline runs in GitHub Actions" loading="lazy" width="640" height="360">
+          <span class="featured-body"><strong>Helm chart delivery</strong><span>A pipeline tests a chart in a temporary k3d cluster, then publishes and verifies the tagged release.</span><span class="featured-link">View case study →</span></span>
+        </a>
+      </article>
+      <article class="featured-card">
+        <a href="https://github.com/sher2yja/portfolio/tree/main/devops_projects/observability-stack">
+          <img src="../assets/covers/observability-stack.jpg" alt="Grafana dashboard with cluster metrics" loading="lazy" width="640" height="360">
+          <span class="featured-body"><strong>Observability stack</strong><span>Prometheus, Loki, Grafana and Alertmanager bring metrics, logs and alerts to a Swarm cluster.</span><span class="featured-link">View case study →</span></span>
+        </a>
+      </article>
+    </div>
+  </div>
+</section>
 
 <section id="stack">
   <div class="wrap">
@@ -128,47 +207,6 @@
       a database on Kubernetes needs the <code>Recreate</code> strategy rather
       than <code>RollingUpdate</code>.
     </p>
-  </div>
-</section>
-
-<section id="product">
-  <div class="wrap">
-    <h2>Products of my own</h2>
-    <p class="sub">One media stack for two use cases: k3s on Linux and Docker Compose in WSL2 on Windows. Both are programs people download, run and use.</p>
-
-    <article class="product">
-      <div class="product-shot">
-        <img src="../assets/covers/home-media-k3s.jpg" alt="The application window: all seven media server services are up and responding" width="640" height="360">
-      </div>
-      <div class="product-body">
-        <h3>Home media server on k3s</h3>
-        <p>Six media library services live in a k3s cluster, and one downloaded file installs them onto someone else&#39;s machine — no command line and no dependencies at all. The program brings the cluster up itself, maps volumes onto the folders the user picked and wires the services to each other over their APIs.</p>
-        <p>On every tag the pipeline brings up a real k3s and runs the installation with the same code that reaches the user. The release publishes exactly the artifact that passed the checks — nothing is rebuilt at that step.</p>
-        <div class="chips"><span class="chip">k3s</span><span class="chip">Kustomize</span><span class="chip">Python</span><span class="chip">tkinter</span><span class="chip">Ansible</span><span class="chip">GitHub Actions</span></div>
-        <div class="links">
-          <a href="https://github.com/sher2yja/home-media-k3s">Repository</a>
-          <a href="https://github.com/sher2yja/home-media-k3s/releases">Releases</a>
-          <a href="https://github.com/sher2yja/home-media-k3s/blob/master/DEVELOPMENT.md">How it works</a>
-        </div>
-      </div>
-    </article>
-
-    <article class="product">
-      <div class="product-shot">
-        <img src="../assets/covers/home-media-lite.jpg" alt="Home Media Lite service-wiring code" width="640" height="360">
-      </div>
-      <div class="product-body">
-        <h3>Home Media Lite for Windows</h3>
-        <p>The same media stack without a cluster: one <code>.exe</code> prepares WSL2 and Docker Desktop, starts seven containers and wires the services together over their APIs.</p>
-        <p>One button shuts the entire stack down so it does not occupy memory around the clock. Before a release, e2e brings up the real Compose stack and tests the same installation path the user receives.</p>
-        <div class="chips"><span class="chip">Docker Compose</span><span class="chip">WSL2</span><span class="chip">Python</span><span class="chip">tkinter</span><span class="chip">GitHub Actions</span></div>
-        <div class="links">
-          <a href="https://github.com/sher2yja/home-media-lite">Repository</a>
-          <a href="https://github.com/sher2yja/home-media-lite/releases">Releases</a>
-          <a href="https://github.com/sher2yja/home-media-lite/blob/master/DEVELOPMENT.md">How it works</a>
-        </div>
-      </div>
-    </article>
   </div>
 </section>
 

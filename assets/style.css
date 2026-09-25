@@ -1,21 +1,21 @@
-/* Портфолио DevOps — тёмная тема, без внешних зависимостей.
+/* Портфолио DevOps — сланцевая тема, без внешних зависимостей.
    Шрифты только системные, иконки — символы, бейджи — свои .chip. */
 
 :root {
-  --bg:        #0b0e14;
-  --surface:   #12161f;
-  --surface-2: #171c27;
-  --border:    #1f2530;
-  --text:      #e6edf3;
-  --muted:     #8b949e;
-  --accent:    #58a6ff;
-  --mono-acc:  #3fb950;
+  --bg:        #21374a;
+  --surface:   #2a4358;
+  --surface-2: #35516a;
+  --border:    #52708a;
+  --text:      #f4f8fc;
+  --muted:     #bed0dd;
+  --accent:    #88c4ff;
+  --mono-acc:  #91e5b4;
 
   --sans: system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", sans-serif;
   --mono: ui-monospace, SFMono-Regular, Menlo, Consolas, "DejaVu Sans Mono", monospace;
 
-  --radius: 10px;
-  --wrap: 1080px;
+  --radius: 12px;
+  --wrap: 1240px;
 
   /* Тень со смещением и размытием, а не цветной ореол вокруг рамки: на тёмном
      фоне ореол читается как свечение, а не как высота. */
@@ -29,7 +29,7 @@
   caret-color: var(--accent);
 }
 
-::selection { background: #1f6feb59; color: var(--text); }
+::selection { background: #3b83c775; color: var(--text); }
 
 * { box-sizing: border-box; }
 
@@ -70,7 +70,7 @@ code {
   padding: 1px 5px;
   border-radius: 5px;
   background: var(--surface-2);
-  color: #c9d4de;
+  color: #dceaf4;
 }
 
 .wrap {
@@ -83,14 +83,23 @@ code {
 
 .top {
   border-bottom: 1px solid var(--border);
-  background: linear-gradient(180deg, #0e131c 0%, var(--bg) 100%);
+  background: linear-gradient(125deg, #2d4860 0%, #294359 52%, var(--bg) 100%);
 }
 
 .top-bar {
   display: flex;
-  justify-content: flex-end;
-  padding: 14px 0 0;
+  align-items: center;
+  gap: 28px;
+  padding: 18px 0;
+  border-bottom: 1px solid #ffffff25;
 }
+
+.brand { color: var(--text); font-weight: 750; white-space: nowrap; letter-spacing: -.02em; }
+.brand:hover { text-decoration: none; }
+.brand-mark { color: var(--mono-acc); }
+.site-nav { display: flex; gap: 24px; align-items: center; margin-left: auto; }
+.site-nav a { color: var(--muted); font-size: 14px; }
+.site-nav a:hover { color: var(--text); }
 
 .lang {
   display: inline-flex;
@@ -99,6 +108,7 @@ code {
   overflow: hidden;
   font-size: 13px;
   font-family: var(--mono);
+  flex-shrink: 0;
 }
 
 .lang a, .lang span {
@@ -112,32 +122,35 @@ code {
 }
 
 .hero {
-  display: flex;
-  gap: 28px;
-  align-items: flex-start;
-  padding: 28px 0 40px;
+  display: grid;
+  grid-template-columns: 255px minmax(0, 1fr) 240px;
+  gap: 36px;
+  align-items: center;
+  padding: 28px 0 36px;
 }
 
 .avatar {
-  width: 120px;
-  height: 120px;
-  border-radius: 50%;
-  border: 2px solid var(--border);
-  flex-shrink: 0;
+  width: 255px;
+  height: 255px;
+  object-fit: cover;
+  object-position: center;
+  border-radius: 20px;
+  border: 1px solid #ffffff35;
+  box-shadow: 0 16px 32px -18px #091727;
 }
 
 .hero h1 {
-  margin: 0 0 6px;
-  font-size: 30px;
-  line-height: 1.25;
-  letter-spacing: -0.01em;
+  margin: 0 0 8px;
+  font-size: clamp(34px, 4vw, 57px);
+  line-height: 1.05;
+  letter-spacing: -0.035em;
 }
 
 .role {
-  margin: 0 0 16px;
+  margin: 0 0 20px;
   color: var(--mono-acc);
   font-family: var(--mono);
-  font-size: 14px;
+  font-size: 16px;
 }
 
 .role .dot { color: var(--muted); margin: 0 8px; }
@@ -145,11 +158,21 @@ code {
 /* 80ch: на 62ch абзац кончался заметно левее ряда кнопок под ним и выглядел
    недописанным. Ширина текстовой колонки шапки — около 110ch, так что 80
    заполняет её без ущерба читаемости. */
+.hero-thesis { margin: 0 0 12px; font-size: clamp(20px, 2vw, 28px); line-height: 1.25; font-weight: 650; }
+
 .lead {
-  margin: 0 0 22px;
-  max-width: 80ch;
-  color: #c9d4de;
+  margin: 0 0 24px;
+  max-width: 68ch;
+  color: #d6e4ef;
+  font-size: 15px;
+  line-height: 1.55;
 }
+
+.hero-aside { align-self: stretch; display: flex; flex-direction: column; justify-content: center; gap: 0; }
+.hero-aside-title { margin: 0 0 12px; color: var(--mono-acc); font: 13px var(--mono); }
+.hero-aside a { display: flex; gap: 9px; padding: 13px 0; border-top: 1px solid var(--border); color: var(--text); font-size: 14px; }
+.hero-aside a span:first-child { color: var(--mono-acc); font: 12px var(--mono); }
+.hero-aside a span:last-child { margin-left: auto; color: var(--accent); }
 
 .actions {
   display: flex;
@@ -172,9 +195,9 @@ code {
 .btn:active { transform: translateY(1px); }
 
 .btn-primary {
-  background: var(--accent);
-  border-color: var(--accent);
-  color: #07101d;
+  background: #78baff;
+  border-color: #78baff;
+  color: #102438;
   font-weight: 600;
 }
 
@@ -182,19 +205,22 @@ code {
 
 /* ---------- секции ---------- */
 
-section { padding: 46px 0; border-bottom: 1px solid var(--border); }
+section { padding: 56px 0; border-bottom: 1px solid var(--border); }
+
+#product { padding-top: 30px; }
+#featured { background: #1e3143; }
 
 section h2 {
-  margin: 0 0 6px;
-  font-size: 20px;
+  margin: 0 0 8px;
+  font-size: 26px;
   letter-spacing: -0.01em;
 }
 
-section h2::before {
-  content: "# ";
-  color: var(--mono-acc);
-  font-family: var(--mono);
-}
+section h2::before { content: none; }
+
+.section-heading { display: flex; justify-content: space-between; gap: 20px; align-items: start; margin-bottom: 22px; }
+.section-heading .sub { margin: 0; }
+.section-heading > a { white-space: nowrap; padding-top: 8px; font-size: 14px; }
 
 /* Ширину задаёт колонка .wrap, своего лимита нет. Любая мера уже неё обрывала
    абзац на середине, тогда как чипы, карточки и таблицы под ним идут во всю
@@ -228,7 +254,7 @@ section h2::before {
   border: 1px solid var(--border);
   border-radius: 999px;
   background: var(--surface);
-  color: #c9d4de;
+  color: #e0ebf4;
   font-family: var(--mono);
   font-size: 12.5px;
   white-space: nowrap;
@@ -317,7 +343,7 @@ section h2::before {
    а не только на мышь. */
 .card:hover,
 .card:focus-within {
-  border-color: #2b3444;
+  border-color: var(--accent);
   box-shadow: var(--lift);
   transform: translateY(-2px);
 }
@@ -344,66 +370,70 @@ section h2::before {
 .links { display: flex; flex-wrap: wrap; gap: 14px; font-size: 14px; font-family: var(--mono); }
 
 .links a {
-  border-bottom: 1px solid #2b3444;
+  border-bottom: 1px solid var(--border);
   transition: border-color var(--ease);
 }
 
 .links a:hover { border-bottom-color: var(--accent); text-decoration: none; }
 
-/* ---------- собственный продукт ---------- */
+/* ---------- собственные продукты и избранные кейсы ---------- */
 
-/* Широкая карточка на всю колонку, а не ячейка сетки: продукт стоит в
-   портфолио особняком, и плитка, одинаковая с двадцатью отчётами, это
-   различие стирает. */
+.product-list { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 20px; }
+
 .product {
-  display: grid;
-  /* 6:5 в пользу обложки, а не наоборот: колонки связаны обратно — чем уже
-     колонка с текстом, тем он выше, и при 5:6 снимок оказывался на 160 px
-     ниже текста, а поля над ним и под ним читались как дыра. */
-  grid-template-columns: minmax(0, 6fr) minmax(0, 5fr);
+  display: flex;
+  flex-direction: column;
   border: 1px solid var(--border);
   border-radius: var(--radius);
   background: var(--surface);
   overflow: hidden;
-  transition: border-color var(--ease), box-shadow var(--ease);
+  transition: border-color var(--ease), box-shadow var(--ease), transform var(--ease);
 }
 
 .product:hover,
 .product:focus-within {
-  border-color: #2b3444;
+  border-color: var(--accent);
   box-shadow: var(--lift);
+  transform: translateY(-2px);
 }
 
-/* Обложка не растягивается под высоту текста: 640x360 сняты с окна программы,
-   и object-fit: cover срезал бы у него как раз список сервисов. */
 .product-shot {
   display: flex;
   align-items: center;
-  background: var(--bg);
-  border-right: 1px solid var(--border);
+  background: #142333;
+  border-bottom: 1px solid var(--border);
 }
 
 .product-shot img { display: block; width: 100%; height: auto; }
 
 .product-body {
-  padding: 24px 26px;
+  padding: 22px 24px 24px;
   display: flex;
   flex-direction: column;
+  flex: 1;
 }
 
 .product-body h3 {
-  margin: 0 0 10px;
-  font-size: 19px;
+  margin: 0 0 9px;
+  font-size: 22px;
   letter-spacing: -0.01em;
 }
 
-.product-body p { margin: 0 0 12px; color: #c9d4de; font-size: 15px; }
+.product-body p { margin: 0 0 14px; color: #d3e1eb; font-size: 15px; }
 
 .product-body .chips { margin: 4px 0 16px; }
 
 .product-body .links { margin-top: auto; }
 
-.product + .product { margin-top: 18px; }
+.featured-grid { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 18px; }
+.featured-card { min-width: 0; border: 1px solid var(--border); border-radius: var(--radius); overflow: hidden; background: var(--surface); transition: transform var(--ease), box-shadow var(--ease), border-color var(--ease); }
+.featured-card:hover, .featured-card:focus-within { transform: translateY(-2px); box-shadow: var(--lift); border-color: var(--accent); }
+.featured-card a { display: block; color: var(--text); height: 100%; }
+.featured-card a:hover { text-decoration: none; }
+.featured-card img { display: block; width: 100%; height: auto; border-bottom: 1px solid var(--border); }
+.featured-body { display: flex; flex-direction: column; gap: 8px; padding: 16px 18px 19px; font-size: 14px; color: var(--muted); }
+.featured-body strong { color: var(--text); font-size: 18px; line-height: 1.25; }
+.featured-link { color: var(--accent); font-weight: 650; margin-top: 3px; }
 
 /* ---------- опыт ---------- */
 
@@ -436,15 +466,25 @@ footer .actions { margin-bottom: 20px; }
 /* Продукт складывается раньше прочего: в две колонки текст рядом с обложкой
    становится нечитаемо узким уже около 860 px, задолго до мобильной ширины. */
 @media (max-width: 860px) {
-  .product { grid-template-columns: 1fr; }
-  .product-shot { border-right: none; border-bottom: 1px solid var(--border); }
+  .hero { grid-template-columns: 205px minmax(0, 1fr); gap: 24px; }
+  .avatar { width: 205px; height: 235px; }
+  .hero-aside { display: none; }
+  .site-nav { gap: 14px; }
+  .featured-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
   .stack-row { grid-template-columns: 160px 1fr; }
 }
 
 @media (max-width: 640px) {
-  .hero { flex-direction: column; gap: 18px; padding-bottom: 30px; }
-  .avatar { width: 92px; height: 92px; }
-  .hero h1 { font-size: 25px; }
+  .top-bar { flex-wrap: wrap; gap: 12px; }
+  .brand { margin-right: auto; }
+  .site-nav { order: 3; width: 100%; overflow-x: auto; gap: 18px; padding-bottom: 2px; }
+  .site-nav a { white-space: nowrap; }
+  .hero { grid-template-columns: 1fr; gap: 19px; padding: 26px 0 34px; }
+  .avatar { width: min(100%, 280px); height: 275px; }
+  .hero h1 { font-size: 36px; }
+  .hero-thesis { font-size: 22px; }
+  .product-list, .featured-grid { grid-template-columns: 1fr; }
+  .section-heading { align-items: flex-start; flex-direction: column; gap: 8px; }
   .stack-row { grid-template-columns: 1fr; gap: 8px; }
   .callout { padding: 14px 16px; }
   .facts li { grid-template-columns: 1fr; gap: 4px; }
